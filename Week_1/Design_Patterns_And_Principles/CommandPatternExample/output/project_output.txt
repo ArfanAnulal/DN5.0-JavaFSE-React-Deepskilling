@@ -1,0 +1,6 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Design_Patterns_And_Principles\CommandPatternExample> java -cp target/classes com.pattern.command.Main
+Pressing ON button:
+The light is ON
+
+Pressing OFF button:
+The light is OFF

@@ -1,0 +1,12 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Design_Patterns_And_Principles\DecoratorPatternExample> java -cp target/classes com.pattern.decorator.Main
+1. Using Basic Notifier:
+Sending Email: Alert 1
+
+2. Decorating with SMS:
+Sending Email: Alert 2
+Sending SMS: Alert 2
+
+3. Decorating with SMS and Slack:
+Sending Email: Alert 3
+Sending SMS: Alert 3
+Sending Slack Notification: Alert 3

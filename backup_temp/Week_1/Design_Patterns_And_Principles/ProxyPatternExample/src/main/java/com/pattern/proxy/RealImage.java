@@ -1,0 +1,24 @@
+package com.pattern.proxy;
+
+public class RealImage implements Image {
+    private final String filename;
+
+    public RealImage(String filename) {
+        this.filename = filename;
+        loadFromRemoteServer();
+    }
+
+    private void loadFromRemoteServer() {
+        System.out.println("Loading " + filename + " from remote server...");
+        try {
+            Thread.sleep(1000); // simulate slow loading
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Displaying " + filename);
+    }
+}

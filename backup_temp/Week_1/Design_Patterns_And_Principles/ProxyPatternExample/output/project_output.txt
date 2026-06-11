@@ -1,0 +1,7 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Design_Patterns_And_Principles\ProxyPatternExample> java -cp target/classes com.pattern.proxy.Main
+First call to display() (Should load from server):
+Loading test_image.jpg from remote server...
+Displaying test_image.jpg
+
+Second call to display() (Should retrieve from cache):
+Displaying test_image.jpg

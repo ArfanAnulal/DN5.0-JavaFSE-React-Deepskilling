@@ -1,0 +1,20 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Algorithms_Data_Structures> java -cp target/classes com.algorithms.sorting.Main
+Initial Orders (Unsorted):
+- O101: Alice ($250.0)
+- O102: Bob ($99.99)
+- O103: Charlie ($450.0)
+- O104: David ($120.0)
+
+1. Running Bubble Sort (Ascending by Price)...
+Sorted Orders (Bubble Sort):
+- O102: Bob ($99.99)
+- O104: David ($120.0)
+- O101: Alice ($250.0)
+- O103: Charlie ($450.0)
+
+2. Running Quick Sort (Ascending by Price)...
+Sorted Orders (Quick Sort):
+- O102: Bob ($99.99)
+- O104: David ($120.0)
+- O101: Alice ($250.0)
+- O103: Charlie ($450.0)

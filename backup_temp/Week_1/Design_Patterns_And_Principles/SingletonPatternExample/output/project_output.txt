@@ -1,0 +1,6 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Design_Patterns_And_Principles\SingletonPatternExample> java -cp target/classes com.pattern.singleton.Main
+logger1 hash: 564985042
+logger2 hash: 564985042
+Are both instances equal? true
+[LOG]: This is a log message from instance 1.
+[LOG]: This is a log message from instance 2.

@@ -1,0 +1,6 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Design_Patterns_And_Principles\StrategyPatternExample> java -cp target/classes com.pattern.strategy.Main
+Paying via Credit Card:
+$500.0 paid using Credit Card ending with 3456
+
+Paying via PayPal:
+$120.0 paid using PayPal account benedictcm1@gmail.com

@@ -1,0 +1,9 @@
+com\pattern\factory\WordDocument.class
+com\pattern\factory\ExcelDocumentFactory.class
+com\pattern\factory\WordDocumentFactory.class
+com\pattern\factory\ExcelDocument.class
+com\pattern\factory\DocumentFactory.class
+com\pattern\factory\Main.class
+com\pattern\factory\PdfDocument.class
+com\pattern\factory\PdfDocumentFactory.class
+com\pattern\factory\Document.class
