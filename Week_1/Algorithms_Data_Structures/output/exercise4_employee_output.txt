@@ -1,0 +1,14 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Algorithms_Data_Structures> java -cp target/classes com.algorithms.employee.Main
+All Employees:
+ID: E001, Name: John Doe
+ID: E002, Name: Jane Smith
+ID: E003, Name: Sam Brown
+
+Searching for Employee E002:
+Found: Jane Smith
+
+Deleting Employee E001...
+
+Remaining Employees:
+ID: E002, Name: Jane Smith
+ID: E003, Name: Sam Brown

@@ -1,0 +1,10 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Algorithms_Data_Structures> java -cp target/classes com.algorithms.inventory.Main
+Added products to inventory:
+P101: Laptop, Qty: 10, Price: $999.99
+P102: Smartphone, Qty: 25, Price: $499.99
+
+Updating Smartphone (P102) quantity to 30 and price to $479.99...
+P102 (Updated): Qty: 30, Price: $479.99
+
+Deleting Laptop (P101)...
+Product P101 in inventory: false

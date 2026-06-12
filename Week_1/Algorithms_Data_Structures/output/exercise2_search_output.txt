@@ -1,0 +1,18 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Algorithms_Data_Structures> java -cp target/classes com.algorithms.search.Main
+Products List:
+- P101: Book (Books)
+- P102: Headphones (Electronics)
+- P103: Keyboard (Electronics)
+- P104: Monitor (Electronics)
+
+1. Executing Linear Search for product 'P103':
+Result: Found Keyboard
+
+2. Executing Binary Search for product 'P103':
+Result: Found Keyboard
+
+3. Executing Linear Search for product 'P999':
+Result: Not Found
+
+4. Executing Binary Search for product 'P999':
+Result: Not Found

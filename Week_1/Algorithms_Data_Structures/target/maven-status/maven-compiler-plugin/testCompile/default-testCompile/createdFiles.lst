@@ -1,0 +1,7 @@
+com\algorithms\search\SearchTest.class
+com\algorithms\task\TaskTest.class
+com\algorithms\inventory\InventoryTest.class
+com\algorithms\library\LibraryTest.class
+com\algorithms\sorting\SortingTest.class
+com\algorithms\employee\EmployeeTest.class
+com\algorithms\forecasting\FinancialForecastingTest.class
