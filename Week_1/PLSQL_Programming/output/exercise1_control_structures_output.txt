@@ -1,0 +1,7 @@
+SQL> SET SERVEROUTPUT ON;
+SQL> @exercise1_control_structures.sql
+Applied 1% discount to Loan ID: 101
+Promoted Customer ID: 2 to VIP.
+Reminder: Customer Bob (Loan ID: 102) has a loan due on 2026-07-10
+
+PL/SQL procedure successfully completed.

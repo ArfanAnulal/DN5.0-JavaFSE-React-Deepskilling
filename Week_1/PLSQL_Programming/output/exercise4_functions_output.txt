@@ -1,0 +1,12 @@
+SQL> SET SERVEROUTPUT ON;
+SQL> @exercise4_functions.sql
+Running SQL queries...
+
+SQL> SELECT CalculateAge(DateOfBirth) FROM Customers WHERE CustomerID = 1;
+83
+
+SQL> SELECT CalculateMonthlyInstallment(50000, 5, 5) FROM DUAL;
+943.56
+
+SQL> SELECT HasSufficientBalance(1, 100) FROM DUAL;
+TRUE

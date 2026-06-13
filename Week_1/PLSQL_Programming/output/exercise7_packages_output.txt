@@ -1,0 +1,7 @@
+SQL> SET SERVEROUTPUT ON;
+SQL> @exercise7_packages.sql
+CustomerManagement: Customer Charlie added successfully.
+EmployeeManagement: David hired with salary $95000.
+AccountOperations: Total balance for Customer 3 is $6000.
+
+PL/SQL procedure successfully completed.

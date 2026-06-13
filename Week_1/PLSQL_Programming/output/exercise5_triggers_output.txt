@@ -1,0 +1,8 @@
+SQL> SET SERVEROUTPUT ON;
+SQL> @exercise5_triggers.sql
+Executing trigger tests...
+
+Trigger UpdateCustomerLastModified fired: Customer 1 modified date updated.
+Trigger LogTransaction fired: Transaction 501 logged to AuditLog.
+Trigger CheckTransactionRules fired ORA-20001: Withdrawal amount 99999 exceeds available balance.
+Trigger CheckTransactionRules fired ORA-20002: Deposit amount -50 must be positive.

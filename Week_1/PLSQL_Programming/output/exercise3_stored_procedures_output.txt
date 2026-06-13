@@ -1,0 +1,7 @@
+SQL> SET SERVEROUTPUT ON;
+SQL> @exercise3_stored_procedures.sql
+ProcessMonthlyInterest: Savings accounts interest (1%) applied.
+UpdateEmployeeBonus: IT department employees bonus (10%) applied.
+TransferFunds: $300 transferred from Account 2 to Account 1.
+
+PL/SQL procedure successfully completed.
