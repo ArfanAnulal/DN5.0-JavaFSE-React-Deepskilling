@@ -1,0 +1,15 @@
+22:33:03.550 [main] DEBUG com.testing.logging.LoggingService - Debug log message
+22:33:03.551 [main] INFO  com.testing.logging.LoggingService - Info log message
+22:33:03.552 [main] WARN  com.testing.logging.LoggingService - Warn log message
+22:33:03.552 [main] ERROR com.testing.logging.LoggingService - Error log message
+22:33:03.552 [main] INFO  com.testing.logging.LoggingService - User 'johndoe' performed action 'PAY_LOAN' with transaction reference #12345
+23:12:08.717 [main] DEBUG com.testing.logging.LoggingService - Debug log message
+23:12:08.719 [main] INFO  com.testing.logging.LoggingService - Info log message
+23:12:08.720 [main] WARN  com.testing.logging.LoggingService - Warn log message
+23:12:08.720 [main] ERROR com.testing.logging.LoggingService - Error log message
+23:12:08.722 [main] INFO  com.testing.logging.LoggingService - User 'johndoe' performed action 'PAY_LOAN' with transaction reference #12345
+23:26:41.300 [com.testing.logging.Main.main()] DEBUG com.testing.logging.LoggingService - Debug log message
+23:26:41.301 [com.testing.logging.Main.main()] INFO  com.testing.logging.LoggingService - Info log message
+23:26:41.302 [com.testing.logging.Main.main()] WARN  com.testing.logging.LoggingService - Warn log message
+23:26:41.302 [com.testing.logging.Main.main()] ERROR com.testing.logging.LoggingService - Error log message
+23:26:41.302 [com.testing.logging.Main.main()] INFO  com.testing.logging.LoggingService - User 'Benedict' performed action 'PaymentTransfer' with transaction reference #1002
