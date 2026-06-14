@@ -1,0 +1,18 @@
+# Java target directory
+target/
+*.class
+
+# Log files
+*.log
+app.log
+
+# IDE files
+.idea/
+*.iml
+.project
+.classpath
+.settings/
+.vscode/
+
+# Local/Workspace specific docs folder exclusion
+docs/
