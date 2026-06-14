@@ -1,6 +1,0 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Design_Patterns_And_Principles\AdapterPatternExample> java -cp target/classes com.pattern.adapter.Main
-Processing payment via PayPal adapter:
-Payment of $150.0 processed successfully via PayPal.
-
-Processing payment via Stripe adapter:
-Payment of 29999.0 cents charged successfully via Stripe.

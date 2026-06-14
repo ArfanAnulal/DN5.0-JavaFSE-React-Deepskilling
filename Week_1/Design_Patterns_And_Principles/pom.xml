@@ -18,15 +18,6 @@
     <modules>
         <module>SingletonPatternExample</module>
         <module>FactoryMethodPatternExample</module>
-        <module>BuilderPatternExample</module>
-        <module>AdapterPatternExample</module>
-        <module>DecoratorPatternExample</module>
-        <module>ProxyPatternExample</module>
-        <module>ObserverPatternExample</module>
-        <module>StrategyPatternExample</module>
-        <module>CommandPatternExample</module>
-        <module>MVCPatternExample</module>
-        <module>DependencyInjectionExample</module>
     </modules>
 
     <dependencyManagement>

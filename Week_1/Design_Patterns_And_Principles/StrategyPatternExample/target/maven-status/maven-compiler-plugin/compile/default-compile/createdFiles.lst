@@ -1,5 +1,0 @@
-com\pattern\strategy\PaymentContext.class
-com\pattern\strategy\PaymentStrategy.class
-com\pattern\strategy\CreditCardPayment.class
-com\pattern\strategy\Main.class
-com\pattern\strategy\PayPalPayment.class

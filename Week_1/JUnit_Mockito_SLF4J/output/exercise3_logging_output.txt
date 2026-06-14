@@ -1,9 +1,5 @@
 PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\JUnit_Mockito_SLF4J> java -cp target/classes com.testing.logging.Main
-Running standard logging level demo:
-23:26:41.300 [com.testing.logging.Main.main()] DEBUG com.testing.logging.LoggingService - Debug log message
-23:26:41.301 [com.testing.logging.Main.main()] INFO  com.testing.logging.LoggingService - Info log message
-23:26:41.302 [com.testing.logging.Main.main()] WARN  com.testing.logging.LoggingService - Warn log message
-23:26:41.302 [com.testing.logging.Main.main()] ERROR com.testing.logging.LoggingService - Error log message
-
-Running parameterized logging demo:
-23:26:41.302 [com.testing.logging.Main.main()] INFO  com.testing.logging.LoggingService - User 'Benedict' performed action 'PaymentTransfer' with transaction reference #1002
+13:16:27.652 [main] DEBUG com.testing.logging.LoggingService - Debug log message
+13:16:27.659 [main] INFO  com.testing.logging.LoggingService - Info log message
+13:16:27.662 [main] WARN  com.testing.logging.LoggingService - Warn log message
+13:16:27.662 [main] ERROR com.testing.logging.LoggingService - Error log message

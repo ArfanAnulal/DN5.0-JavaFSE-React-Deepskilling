@@ -1,6 +1,0 @@
-com\pattern\command\RemoteControl.class
-com\pattern\command\LightOffCommand.class
-com\pattern\command\Main.class
-com\pattern\command\LightOnCommand.class
-com\pattern\command\Command.class
-com\pattern\command\Light.class

@@ -1,6 +1,0 @@
-com\pattern\decorator\Main.class
-com\pattern\decorator\Notifier.class
-com\pattern\decorator\EmailNotifier.class
-com\pattern\decorator\SMSNotifierDecorator.class
-com\pattern\decorator\NotifierDecorator.class
-com\pattern\decorator\SlackNotifierDecorator.class

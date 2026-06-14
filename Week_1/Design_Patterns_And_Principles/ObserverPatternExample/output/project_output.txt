@@ -1,7 +1,0 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Design_Patterns_And_Principles\ObserverPatternExample> java -cp target/classes com.pattern.observer.Main
-Updating GOOGL price to 155.5:
-MobileApp [PixelApp] notified: Stock GOOGL is now $155.5
-WebApp [ChromeApp] notified: Stock GOOGL is now $155.5
-
-Deregistering WebApp and updating price to 160.0:
-MobileApp [PixelApp] notified: Stock GOOGL is now $160.0
