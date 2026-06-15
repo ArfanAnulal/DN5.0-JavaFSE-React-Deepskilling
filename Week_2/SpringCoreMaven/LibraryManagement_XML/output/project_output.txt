@@ -1,0 +1,13 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringCoreMaven\LibraryManagement_XML> mvn exec:java
+[AOP BEFORE] Executing method: addBook
+[BookService]: Business check for adding book 'Effective Java'
+[BookRepository]: Saving book 'Effective Java' to database...
+[AOP AROUND] Method 'addBook' executed in 0ms
+[AOP AFTER] Completed method: addBook
+
+[AOP BEFORE] Executing method: listBooks
+[BookService]: Retrieving complete library list
+[BookRepository]: Querying all books from database...
+[AOP AROUND] Method 'listBooks' executed in 0ms
+[AOP AFTER] Completed method: listBooks
+Result Library books: [Clean Code, Design Patterns, Effective Java]
