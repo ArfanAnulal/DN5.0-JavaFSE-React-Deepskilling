@@ -1,0 +1,162 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringDataJPA\orm-learn> mvn spring-boot:run
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.cognizant:orm-learn >-----------------------
+[INFO] Building orm-learn 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.3.0:run (default-cli) > test-compile @ orm-learn >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ orm-learn ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ orm-learn ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 17 source files with javac [debug parameters release 17] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ orm-learn ---
+[INFO] skip non existing resourceDirectory C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringDataJPA\orm-learn\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ orm-learn ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< spring-boot:3.3.0:run (default-cli) < test-compile @ orm-learn <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.3.0:run (default-cli) @ orm-learn ---
+[INFO] Attaching agents: []
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+
+ :: Spring Boot ::                (v3.3.0)
+
+2026-06-18T14:13:07.746+05:30  INFO 10260 --- [           main] c.c.ormlearn.OrmLearnApplication         : Starting OrmLearnApplication using Java 22.0.2 with PID 10260 (C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringDataJPA\orm-learn\target\classes started by bened in C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringDataJPA\orm-learn)
+2026-06-18T14:13:07.747+05:30 DEBUG 10260 --- [           main] c.c.ormlearn.OrmLearnApplication         : Running with Spring Boot v3.3.0, Spring v6.1.8
+2026-06-18T14:13:07.748+05:30  INFO 10260 --- [           main] c.c.ormlearn.OrmLearnApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-06-18T14:13:08.028+05:30  INFO 10260 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-18T14:13:08.073+05:30  INFO 10260 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 5 JPA repository interfaces.
+2026-06-18T14:13:08.249+05:30  INFO 10260 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-18T14:13:08.370+05:30  INFO 10260 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:ormlearn user=SA
+2026-06-18T14:13:08.372+05:30  INFO 10260 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-18T14:13:08.463+05:30  INFO 10260 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-18T14:13:08.492+05:30  INFO 10260 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-06-18T14:13:08.510+05:30  INFO 10260 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-06-18T14:13:08.709+05:30  INFO 10260 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-18T14:13:08.738+05:30  WARN 10260 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-18T14:13:09.408+05:30  INFO 10260 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-18T14:13:09.410+05:30  INFO 10260 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-18T14:13:09.650+05:30  INFO 10260 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-18T14:13:10.026+05:30  INFO 10260 --- [           main] c.c.ormlearn.OrmLearnApplication         : Started OrmLearnApplication in 2.585 seconds (process running for 2.825)
+
+2026-06-18T14:13:10.034+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : Start get employee 1
+2026-06-18T14:13:10.059+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id where e1_0.em_id=?
+Hibernate: select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id where e1_0.em_id=?
+2026-06-18T14:13:10.088+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee_skill sl1_0 join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where sl1_0.es_em_id=?
+Hibernate: select sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee_skill sl1_0 join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where sl1_0.es_em_id=?
+Employee: John Doe, Salary: 85000.0
+Department: Department [id=1, name=IT]
+Skills: [Skill [id=1, name=Java], Skill [id=3, name=SQL], Skill [id=2, name=Spring Boot]]
+
+2026-06-18T14:13:10.100+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.DepartmentService   : Start get department 1
+2026-06-18T14:13:10.100+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+Hibernate: select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+2026-06-18T14:13:10.104+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select el1_0.em_dp_id,el1_0.em_id,el1_0.em_date_of_birth,el1_0.em_name,el1_0.em_permanent,el1_0.em_salary from employee el1_0 where el1_0.em_dp_id=?
+Hibernate: select el1_0.em_dp_id,el1_0.em_id,el1_0.em_date_of_birth,el1_0.em_name,el1_0.em_permanent,el1_0.em_salary from employee el1_0 where el1_0.em_dp_id=?
+2026-06-18T14:13:10.106+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : Start save employee
+2026-06-18T14:13:10.121+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : insert into employee (em_date_of_birth,em_dp_id,em_name,em_permanent,em_salary,em_id) values (?,?,?,?,?,default)
+Hibernate: insert into employee (em_date_of_birth,em_dp_id,em_name,em_permanent,em_salary,em_id) values (?,?,?,?,?,default)
+2026-06-18T14:13:10.130+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : End save employee
+Employee added successfully with ID: 5
+
+2026-06-18T14:13:10.135+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : Start get employee 3
+2026-06-18T14:13:10.135+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id where e1_0.em_id=?
+Hibernate: select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id where e1_0.em_id=?
+2026-06-18T14:13:10.136+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee_skill sl1_0 join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where sl1_0.es_em_id=?
+Hibernate: select sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee_skill sl1_0 join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where sl1_0.es_em_id=?
+2026-06-18T14:13:10.137+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.DepartmentService   : Start get department 2
+2026-06-18T14:13:10.138+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+Hibernate: select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+2026-06-18T14:13:10.138+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select el1_0.em_dp_id,el1_0.em_id,el1_0.em_date_of_birth,el1_0.em_name,el1_0.em_permanent,el1_0.em_salary from employee el1_0 where el1_0.em_dp_id=?
+Hibernate: select el1_0.em_dp_id,el1_0.em_id,el1_0.em_date_of_birth,el1_0.em_name,el1_0.em_permanent,el1_0.em_salary from employee el1_0 where el1_0.em_dp_id=?
+2026-06-18T14:13:10.139+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : Start save employee
+2026-06-18T14:13:10.142+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id where e1_0.em_id=?
+Hibernate: select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id where e1_0.em_id=?
+2026-06-18T14:13:10.144+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+Hibernate: select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+2026-06-18T14:13:10.144+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee_skill sl1_0 join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where sl1_0.es_em_id=?
+Hibernate: select sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee_skill sl1_0 join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where sl1_0.es_em_id=?
+2026-06-18T14:13:10.146+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : End save employee
+2026-06-18T14:13:10.151+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : update employee set em_date_of_birth=?,em_dp_id=?,em_name=?,em_permanent=?,em_salary=? where em_id=?
+Hibernate: update employee set em_date_of_birth=?,em_dp_id=?,em_name=?,em_permanent=?,em_salary=? where em_id=?
+Updated successfully: Employee Bob Johnson moved to department Finance
+
+2026-06-18T14:13:10.154+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.DepartmentService   : Start get department 1
+2026-06-18T14:13:10.154+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+Hibernate: select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+2026-06-18T14:13:10.156+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select el1_0.em_dp_id,el1_0.em_id,el1_0.em_date_of_birth,el1_0.em_name,el1_0.em_permanent,el1_0.em_salary from employee el1_0 where el1_0.em_dp_id=?
+Hibernate: select el1_0.em_dp_id,el1_0.em_id,el1_0.em_date_of_birth,el1_0.em_name,el1_0.em_permanent,el1_0.em_salary from employee el1_0 where el1_0.em_dp_id=?
+Department: IT
+Employees in Department: 2
+
+2026-06-18T14:13:10.157+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : Start get employee 2
+2026-06-18T14:13:10.157+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id where e1_0.em_id=?
+Hibernate: select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id where e1_0.em_id=?
+2026-06-18T14:13:10.158+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee_skill sl1_0 join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where sl1_0.es_em_id=?
+Hibernate: select sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee_skill sl1_0 join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where sl1_0.es_em_id=?
+2026-06-18T14:13:10.159+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.SkillService        : Start get skill 2
+2026-06-18T14:13:10.159+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select s1_0.sk_id,s1_0.sk_name from skill s1_0 where s1_0.sk_id=?
+Hibernate: select s1_0.sk_id,s1_0.sk_name from skill s1_0 where s1_0.sk_id=?
+2026-06-18T14:13:10.161+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : Start save employee
+2026-06-18T14:13:10.162+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id where e1_0.em_id=?
+Hibernate: select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id where e1_0.em_id=?
+2026-06-18T14:13:10.162+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee_skill sl1_0 join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where sl1_0.es_em_id=?
+Hibernate: select sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee_skill sl1_0 join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where sl1_0.es_em_id=?
+2026-06-18T14:13:10.164+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select s1_0.sk_id,s1_0.sk_name from skill s1_0 where s1_0.sk_id=?
+Hibernate: select s1_0.sk_id,s1_0.sk_name from skill s1_0 where s1_0.sk_id=?
+2026-06-18T14:13:10.164+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : End save employee
+2026-06-18T14:13:10.168+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : insert into employee_skill (es_em_id,es_sk_id) values (?,?)
+Hibernate: insert into employee_skill (es_em_id,es_sk_id) values (?,?)
+Skill Spring Boot added to Employee Jane Smith
+
+2026-06-18T14:13:10.170+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : Start getAllPermanentEmployees
+2026-06-18T14:13:10.199+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary,sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id left join employee_skill sl1_0 on e1_0.em_id=sl1_0.es_em_id left join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where e1_0.em_permanent=true
+Hibernate: select e1_0.em_id,e1_0.em_date_of_birth,d1_0.dp_id,d1_0.dp_name,e1_0.em_name,e1_0.em_permanent,e1_0.em_salary,sl1_0.es_em_id,sl1_1.sk_id,sl1_1.sk_name from employee e1_0 left join department d1_0 on d1_0.dp_id=e1_0.em_dp_id left join employee_skill sl1_0 on e1_0.em_id=sl1_0.es_em_id left join skill sl1_1 on sl1_1.sk_id=sl1_0.es_sk_id where e1_0.em_permanent=true
+Permanent Employees size: 3
+Employee: John Doe, Permanent: true, Department: IT, Skills: [Skill [id=1, name=Java], Skill [id=3, name=SQL], Skill [id=2, name=Spring Boot]]
+Employee: Jane Smith, Permanent: true, Department: Finance, Skills: [Skill [id=3, name=SQL], Skill [id=2, name=Spring Boot]]
+Employee: David Miller, Permanent: true, Department: IT, Skills: []
+
+2026-06-18T14:13:10.208+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : Start getAverageSalary for department 1
+2026-06-18T14:13:10.214+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select avg(e1_0.em_salary) from employee e1_0 where e1_0.em_dp_id=?
+Hibernate: select avg(e1_0.em_salary) from employee e1_0 where e1_0.em_dp_id=?
+Average Salary in IT Department: 78500.0
+
+2026-06-18T14:13:10.217+05:30  INFO 10260 --- [           main] c.c.ormlearn.service.EmployeeService     : Start getAllEmployeesNative
+2026-06-18T14:13:10.232+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : SELECT * FROM employee
+Hibernate: SELECT * FROM employee
+2026-06-18T14:13:10.238+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+Hibernate: select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+2026-06-18T14:13:10.238+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+Hibernate: select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+2026-06-18T14:13:10.240+05:30 DEBUG 10260 --- [           main] org.hibernate.SQL                        : select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+Hibernate: select d1_0.dp_id,d1_0.dp_name from department d1_0 where d1_0.dp_id=?
+All Employees (Native Query) size: 5
+Native Employee: John Doe, Salary: 85000.0
+Native Employee: Jane Smith, Salary: 90000.0
+Native Employee: Bob Johnson, Salary: 60000.0
+Native Employee: Alice Williams, Salary: 55000.0
+Native Employee: David Miller, Salary: 72000.0
+2026-06-18T14:13:10.245+05:30  INFO 10260 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-06-18T14:13:10.246+05:30  INFO 10260 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-06-18T14:13:10.247+05:30  INFO 10260 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.948 s
+[INFO] Finished at: 2026-06-18T14:13:10+05:30
+[INFO] ------------------------------------------------------------------------

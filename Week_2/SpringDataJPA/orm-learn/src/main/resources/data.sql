@@ -53,3 +53,30 @@ insert into stock (st_code, st_date, st_open, st_close, st_volume) values ('FB',
 insert into stock (st_code, st_date, st_open, st_close, st_volume) values ('NFLX', '2018-12-24', 242.00, 233.88, 9547600);
 insert into stock (st_code, st_date, st_open, st_close, st_volume) values ('NFLX', '2018-12-21', 263.83, 246.39, 21397600);
 insert into stock (st_code, st_date, st_open, st_close, st_volume) values ('NFLX', '2018-12-26', 233.92, 253.67, 14402700);
+
+-- Insert Department Data
+insert into department (dp_name) values ('IT');
+insert into department (dp_name) values ('Finance');
+insert into department (dp_name) values ('HR');
+
+-- Insert Skill Data
+insert into skill (sk_name) values ('Java');
+insert into skill (sk_name) values ('Spring Boot');
+insert into skill (sk_name) values ('SQL');
+insert into skill (sk_name) values ('React');
+
+-- Insert Employee Data
+insert into employee (em_name, em_salary, em_permanent, em_date_of_birth, em_dp_id) values ('John Doe', 85000.00, true, '1995-04-12', 1);
+insert into employee (em_name, em_salary, em_permanent, em_date_of_birth, em_dp_id) values ('Jane Smith', 90000.00, true, '1992-08-25', 2);
+insert into employee (em_name, em_salary, em_permanent, em_date_of_birth, em_dp_id) values ('Bob Johnson', 60000.00, false, '1998-11-03', 1);
+insert into employee (em_name, em_salary, em_permanent, em_date_of_birth, em_dp_id) values ('Alice Williams', 55000.00, false, '2000-01-15', 3);
+
+-- Insert Employee Skill associations
+insert into employee_skill (es_em_id, es_sk_id) values (1, 1);
+insert into employee_skill (es_em_id, es_sk_id) values (1, 2);
+insert into employee_skill (es_em_id, es_sk_id) values (1, 3);
+insert into employee_skill (es_em_id, es_sk_id) values (2, 3);
+insert into employee_skill (es_em_id, es_sk_id) values (3, 1);
+insert into employee_skill (es_em_id, es_sk_id) values (3, 4);
+insert into employee_skill (es_em_id, es_sk_id) values (4, 4);
+
