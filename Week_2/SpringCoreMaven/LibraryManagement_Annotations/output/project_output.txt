@@ -1,7 +1,0 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringCoreMaven\LibraryManagement_Annotations> mvn exec:java
-[BookService]: Scanned service saving book 'Spring in Action'
-[BookRepository]: Scanned repository saved 'Spring in Action'
-
-[BookService]: Scanned service listing books
-[BookRepository]: Querying scanned repository...
-Result Scanned Library books: [Clean Code (Annotations), Design Patterns (Annotations), Spring in Action]
