@@ -1,6 +1,6 @@
-# LibraryManagement - Spring XML & AOP
+# LibraryManagement - Spring XML Configuration
 
-This module demonstrates the traditional XML configuration and AOP wiring in Spring Core.
+This module demonstrates the traditional XML configuration in Spring Core.
 
 ## Features Implemented
 
@@ -9,11 +9,7 @@ This module demonstrates the traditional XML configuration and AOP wiring in Spr
 2. **Dependency Injection (Exercise 2 & 7)**:
    - Implements both setter injection and constructor injection.
    - Beans are wired in the configuration via `<property>` attributes referencing the target beans.
-3. **AspectJ Logging (Exercise 3 & 8)**:
-   - Uses AspectJ runtime and weaver to define AOP logging aspects.
-   - Tracks method execution times with Around advice.
-   - Logs entry and exit points of service layer methods using Before and After advices.
 
 ## Execution and Logs
 
-The application compile-and-run output is logged in [output.txt](file:///c:/Users/bened/Downloads/Misson_Cognizant/Week_2/SpringCoreMaven/LibraryManagement_XML/output.txt).
+The application compile-and-run output is logged in [output.txt](output.txt).
