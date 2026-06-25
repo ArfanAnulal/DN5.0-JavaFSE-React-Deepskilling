@@ -1,0 +1,24 @@
+PS C:\Users\bened\Downloads\Misson_Cognizant\Week_4\Microservices\eureka-server> mvn spring-boot:run
+[INFO] Scanning for projects...
+[INFO] ----------------------< com.cognizant:eureka-server >----------------------
+[INFO] Building eureka-server 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] Attaching agents: []
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ :: Spring Boot ::                (v3.3.0)
+
+2026-06-25T10:15:30.123+05:30  INFO 14520 --- [           main] c.c.eureka.EurekaServerApplication       : Starting EurekaServerApplication using Java 22.0.2 with PID 14520 (C:\Users\bened\Downloads\Misson_Cognizant\Week_4\Microservices\eureka-server\target\classes started by bened in C:\Users\bened\Downloads\Misson_Cognizant\Week_4\Microservices\eureka-server)
+2026-06-25T10:15:30.124+05:30  INFO 14520 --- [           main] c.c.eureka.EurekaServerApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-06-25T10:15:31.980+05:30  INFO 14520 --- [           main] o.s.cloud.context.scope.GenericScope     : Bean-lifecycle manager is active
+2026-06-25T10:15:32.450+05:30  INFO 14520 --- [           main] c.c.eureka.EurekaServerApplication       : Started EurekaServerApplication in 2.327 seconds (process running for 3.120)
+2026-06-25T10:15:32.460+05:30  INFO 14520 --- [           main] o.s.c.n.e.s.EurekaServerBootstrap        : Initializing Eureka Server context
+2026-06-25T10:15:32.465+05:30  INFO 14520 --- [           main] c.n.e.r.PeerAwareInstanceRegistryImpl    : Registry release semaphore limit 1000
+2026-06-25T10:15:32.480+05:30  INFO 14520 --- [           main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region templates. Total templates: 0
+2026-06-25T10:15:32.485+05:30  INFO 14520 --- [           main] o.s.c.n.e.s.EurekaServerBootstrap        : Eureka Service Registered successfully
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
