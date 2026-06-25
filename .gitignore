@@ -16,3 +16,7 @@ app.log
 
 # Local/Workspace specific docs folder exclusion
 docs/
+
+# Local/Workspace specific backup folder exclusion
+backup_temp/
+

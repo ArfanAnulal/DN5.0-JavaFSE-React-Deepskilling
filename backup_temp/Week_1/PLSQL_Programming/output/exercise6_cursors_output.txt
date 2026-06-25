@@ -1,8 +1,0 @@
-SQL> SET SERVEROUTPUT ON;
-SQL> @exercise6_cursors.sql
-Statement: Customer Alice (Account 1): Deposit of $100 on 2026-06-13.
-Annual fee of $50 deducted from Account 1.
-Annual fee of $50 deducted from Account 2.
-Loan ID 102 interest rate updated to 6.5%.
-
-PL/SQL procedure successfully completed.
