@@ -29,7 +29,7 @@ The program runs for a total duration of 7 weeks, requiring 10-12 hours of focus
 | Phase / Week | Calendar Window | Focus Area / Modules | Status |
 | :--- | :--- | :--- | :--- |
 | **Week 1** | 9 June - 14 June | **Engineering Concepts & Languages**<br>• Module 1: Design Patterns and Principles<br>• Module 2: Data Structures and Algorithms<br>• Module 3: PL/SQL Programming<br>• Module 4: Test Driven Development & SLF4J | **Completed** |
-| **Weeks 2-6** | 15 June - 20 July | **Enterprise Frameworks & UI (Spring & React)**<br>• Module 5: Spring Core and Maven (Completed)<br>• Module 6: Spring Data JPA & Hibernate (Completed)<br>• Module 7: Spring REST using Spring Boot 3 (Completed)<br>• Module 8: Microservices with Spring Cloud (Planned)<br>• Module 9: Single Page Application - React (Planned)<br>• Module 10: JavaScript & Java Debugging (Planned) | **In Progress** |
+| **Weeks 2-6** | 15 June - 20 July | **Enterprise Frameworks & UI (Spring & React)**<br>• Module 5: Spring Core and Maven <br>• Module 6: Spring Data JPA & Hibernate <br>• Module 7: Spring REST using Spring Boot 3 <br>• Module 8: Microservices with Spring Cloud <br>• Module 9: Single Page Application - React <br>• Module 10: JavaScript & Java Debugging  | **In Progress** |
 | **Week 7** | 21 July - 28 July | **Platforms, Infrastructure & GenAI**<br>• Module 11: Version Control - Git<br>• Module 12: DevOps and CI/CD Pipelines<br>• Module 13: Containerization using Docker<br>• Module 14: Agile Methodologies<br>• Module 15: Cloud Fundamentals<br>• Module 16: GenAI Fundamentals & Tools | **Planned** |
 
 
