@@ -17,7 +17,7 @@ This repository contains the structured deliverables, project environments, and 
 │   └── SpringDataJPA/                                  (Spring Data JPA & Hibernate country/stock/employee models)
 ├── Week_3/                                             (Week 3 payload - Completed 24 June)
 │   └── SpringREST/                                     (Spring Boot REST country/employee/JWT auth services)
-├── Week_4/                                             (Week 4 payload - Completed 26 June)
+├── Week_4/                                             (Week 4 payload - Completed 27 June)
 │   └── Microservices/                                  (Eureka discovery, API Gateway, account & loan services)
 └── README.md                                           (Workspace master strategy document)
 ```
