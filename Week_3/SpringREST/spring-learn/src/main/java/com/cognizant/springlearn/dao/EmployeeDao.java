@@ -2,7 +2,6 @@ package com.cognizant.springlearn.dao;
 
 import com.cognizant.springlearn.model.Employee;
 import com.cognizant.springlearn.service.exception.EmployeeNotFoundException;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
@@ -15,10 +14,11 @@ public class EmployeeDao {
 
     public EmployeeDao() {
         if (EMPLOYEE_LIST.isEmpty()) {
-            ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
-            @SuppressWarnings("unchecked")
-            ArrayList<Employee> list = (ArrayList<Employee>) context.getBean("employeeList");
-            EMPLOYEE_LIST.addAll(list);
+            try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("employee.xml")) {
+                @SuppressWarnings("unchecked")
+                ArrayList<Employee> list = (ArrayList<Employee>) context.getBean("employeeList");
+                EMPLOYEE_LIST.addAll(list);
+            }
         }
     }
 
