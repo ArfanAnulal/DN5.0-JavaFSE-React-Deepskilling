@@ -1,6 +1,6 @@
 -- Exercise 3: Stored Procedures
 
--- Scenario 1: Process monthly interest for savings accounts
+-- Scenario 1: Process monthly interest of 1% for all savings accounts
 CREATE OR REPLACE PROCEDURE ProcessMonthlyInterest IS
 BEGIN
     UPDATE Accounts
@@ -9,58 +9,59 @@ BEGIN
     WHERE AccountType = 'Savings';
 
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Applied 1% monthly interest to all Savings accounts.');
+    DBMS_OUTPUT.PUT_LINE('Monthly interest calculation completed. All savings balances updated by 1%.');
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Error processing monthly interest: ' || SQLERRM);
+        DBMS_OUTPUT.PUT_LINE('Fatal error calculating monthly interest: ' || SQLERRM);
 END ProcessMonthlyInterest;
 /
 
--- Scenario 2: Update Employee Bonus by Department
+-- Scenario 2: Apply a department-wide employee bonus percentage
 CREATE OR REPLACE PROCEDURE UpdateEmployeeBonus (
-    p_Department IN VARCHAR2,
-    p_BonusPercent IN NUMBER
+    dept_name IN VARCHAR2,
+    bonus_pct IN NUMBER
 ) IS
 BEGIN
     UPDATE Employees
-    SET Salary = Salary * (1 + (p_BonusPercent / 100))
-    WHERE Department = p_Department;
+    SET Salary = Salary * (1 + (bonus_pct / 100))
+    WHERE Department = dept_name;
 
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Bonus applied to department: ' || p_Department);
+    DBMS_OUTPUT.PUT_LINE('Success: Salary updated with bonus for all employees in ' || dept_name || '.');
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Error updating employee bonus: ' || SQLERRM);
+        DBMS_OUTPUT.PUT_LINE('Fatal error applying employee bonus: ' || SQLERRM);
 END UpdateEmployeeBonus;
 /
 
--- Scenario 3: Standard TransferFunds
+-- Scenario 3: Fund transfer with balance validation and locking
 CREATE OR REPLACE PROCEDURE TransferFunds (
-    p_SourceAccountID IN NUMBER,
-    p_DestAccountID   IN NUMBER,
-    p_Amount          IN NUMBER
+    from_acc   IN NUMBER,
+    to_acc     IN NUMBER,
+    amount     IN NUMBER
 ) IS
-    v_SourceBalance NUMBER;
+    source_bal NUMBER;
 BEGIN
-    SELECT Balance INTO v_SourceBalance FROM Accounts WHERE AccountID = p_SourceAccountID FOR UPDATE;
+    -- Select with lock to avoid concurrency anomalies
+    SELECT Balance INTO source_bal FROM Accounts WHERE AccountID = from_acc FOR UPDATE;
 
-    IF v_SourceBalance < p_Amount THEN
+    IF source_bal < amount THEN
         RAISE_APPLICATION_ERROR(-20001, 'Insufficient balance in source account.');
     END IF;
 
-    UPDATE Accounts SET Balance = Balance - p_Amount WHERE AccountID = p_SourceAccountID;
-    UPDATE Accounts SET Balance = Balance + p_Amount WHERE AccountID = p_DestAccountID;
+    UPDATE Accounts SET Balance = Balance - amount WHERE AccountID = from_acc;
+    UPDATE Accounts SET Balance = Balance + amount WHERE AccountID = to_acc;
 
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Transfer of $' || p_Amount || ' completed successfully.');
+    DBMS_OUTPUT.PUT_LINE('Successful transfer: $' || amount || ' moved from ' || from_acc || ' to ' || to_acc || '.');
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Error: Account not found.');
+        DBMS_OUTPUT.PUT_LINE('Transfer error: One or both accounts do not exist.');
     WHEN OTHERS THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Transfer failed: ' || SQLERRM);
+        DBMS_OUTPUT.PUT_LINE('Transfer aborted: ' || SQLERRM);
 END TransferFunds;
 /

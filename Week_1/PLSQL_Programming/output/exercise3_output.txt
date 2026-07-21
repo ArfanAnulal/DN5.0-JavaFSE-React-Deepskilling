@@ -1,0 +1,7 @@
+SQL> SET SERVEROUTPUT ON;
+SQL> @exercise3.sql
+Monthly interest calculation completed. All savings balances updated by 1%.
+Success: Salary updated with bonus for all employees in IT.
+Successful transfer: $300 moved from 2 to 1.
+
+PL/SQL procedure successfully completed.

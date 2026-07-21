@@ -1,0 +1,8 @@
+SQL> SET SERVEROUTPUT ON;
+SQL> @exercise1.sql
+Loan ID 1: interest rate discounted by 1% for senior customer.
+Customer 1 has been elevated to VIP status.
+Customer 3 has been elevated to VIP status.
+ALERT: Loan 1 for customer John Doe is expiring on 2026-08-21. Send reminder.
+
+PL/SQL procedure successfully completed.

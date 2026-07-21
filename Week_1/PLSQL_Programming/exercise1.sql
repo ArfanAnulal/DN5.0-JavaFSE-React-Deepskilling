@@ -1,53 +1,53 @@
 -- Exercise 1: Control Structures
 
--- Scenario 1: Apply a 1% discount to loan interest rates for customers above 60 years old.
+-- Scenario 1: Apply 1% interest rate discount to loans for customers above 60
 DECLARE
-    CURSOR c_senior_loans IS
-        SELECT l.LoanID, l.InterestRate, c.DOB 
-        FROM Loans l
-        JOIN Customers c ON l.CustomerID = c.CustomerID;
-    v_age NUMBER;
+    CURSOR cur_senior_customers IS
+        SELECT ln.LoanID, ln.InterestRate, cust.DOB 
+        FROM Loans ln
+        JOIN Customers cust ON ln.CustomerID = cust.CustomerID;
+    cust_age NUMBER;
 BEGIN
-    FOR r IN c_senior_loans LOOP
-        v_age := MONTHS_BETWEEN(SYSDATE, r.DOB) / 12;
-        IF v_age > 60 THEN
+    FOR r IN cur_senior_customers LOOP
+        cust_age := MONTHS_BETWEEN(SYSDATE, r.DOB) / 12;
+        IF cust_age > 60 THEN
             UPDATE Loans
             SET InterestRate = InterestRate - 1
             WHERE LoanID = r.LoanID;
-            DBMS_OUTPUT.PUT_LINE('Applied 1% discount to Loan ID: ' || r.LoanID);
+            DBMS_OUTPUT.PUT_LINE('Loan ID ' || r.LoanID || ': interest rate discounted by 1% for senior customer.');
         END IF;
     END LOOP;
     COMMIT;
 END;
 /
 
--- Scenario 2: Promote customers to VIP status (IsVIP = TRUE) if balance > 10,000.
+-- Scenario 2: Promote customers with balance > $10,000 to VIP
 DECLARE
-    CURSOR c_customers IS
+    CURSOR cur_vip_candidates IS
         SELECT CustomerID, Balance FROM Customers;
 BEGIN
-    FOR r IN c_customers LOOP
+    FOR r IN cur_vip_candidates LOOP
         IF r.Balance > 10000 THEN
             UPDATE Customers
             SET IsVIP = 'TRUE'
             WHERE CustomerID = r.CustomerID;
-            DBMS_OUTPUT.PUT_LINE('Promoted Customer ID: ' || r.CustomerID || ' to VIP.');
+            DBMS_OUTPUT.PUT_LINE('Customer ' || r.CustomerID || ' has been elevated to VIP status.');
         END IF;
     END LOOP;
     COMMIT;
 END;
 /
 
--- Scenario 3: Send reminders to customers whose loans are due within the next 30 days.
+-- Scenario 3: Print alerts for loans expiring within 30 days
 DECLARE
-    CURSOR c_due_loans IS
-        SELECT l.LoanID, c.Name, l.EndDate
-        FROM Loans l
-        JOIN Customers c ON l.CustomerID = c.CustomerID
-        WHERE l.EndDate BETWEEN SYSDATE AND SYSDATE + 30;
+    CURSOR cur_upcoming_dues IS
+        SELECT ln.LoanID, cust.Name, ln.EndDate
+        FROM Loans ln
+        JOIN Customers cust ON ln.CustomerID = cust.CustomerID
+        WHERE ln.EndDate BETWEEN SYSDATE AND SYSDATE + 30;
 BEGIN
-    FOR r IN c_due_loans LOOP
-        DBMS_OUTPUT.PUT_LINE('Reminder: Customer ' || r.Name || ' (Loan ID: ' || r.LoanID || ') has a loan due on ' || TO_CHAR(r.EndDate, 'YYYY-MM-DD'));
+    FOR r IN cur_upcoming_dues LOOP
+        DBMS_OUTPUT.PUT_LINE('ALERT: Loan ' || r.LoanID || ' for customer ' || r.Name || ' is expiring on ' || TO_CHAR(r.EndDate, 'YYYY-MM-DD') || '. Send reminder.');
     END LOOP;
 END;
 /

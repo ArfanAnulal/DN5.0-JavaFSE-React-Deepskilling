@@ -1,9 +1,10 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\JUnit_Mockito_SLF4J> java -cp target/classes com.testing.mockito.Main
-Calling service.fetchData():
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_1\JUnit_Mockito_SLF4J> java -cp target/classes com.junit.test.stubbing.MockitoDemo
+=== Mockito Component Integration Demo ===
+Calling service.load():
 Result: Stubbed Data Response
 
-Calling service.saveData('config', 'active'):
+Calling service.persist('config', 'active'):
 Stubbed Update: config = active
 
-Calling service.getValue('user_1'):
+Calling service.lookup('user_1'):
 Result: Alice

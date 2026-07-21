@@ -1,5 +1,11 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\JUnit_Mockito_SLF4J> java -cp target/classes com.testing.logging.Main
-13:16:27.652 [main] DEBUG com.testing.logging.LoggingService - Debug log message
-13:16:27.659 [main] INFO  com.testing.logging.LoggingService - Info log message
-13:16:27.662 [main] WARN  com.testing.logging.LoggingService - Warn log message
-13:16:27.662 [main] ERROR com.testing.logging.LoggingService - Error log message
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_1\JUnit_Mockito_SLF4J> java -cp target/classes com.junit.test.logging.LoggingDemo
+=== SLF4J Logging Demonstration ===
+
+Triggering a warning log...
+20:10:02.124 [main] INFO  com.junit.test.logging.AppLoggerService - Executing task with parameter: null
+20:10:02.128 [main] WARN  com.junit.test.logging.AppLoggerService - Parameter is null! Falling back to default settings.
+20:10:02.129 [main] DEBUG com.junit.test.logging.AppLoggerService - Task completed successfully for value: default
+
+Triggering an error log...
+20:10:02.130 [main] INFO  com.junit.test.logging.AppLoggerService - Executing task with parameter: error-trigger
+20:10:02.132 [main] ERROR com.junit.test.logging.AppLoggerService - An unexpected error occurred during execution: Simulated processing error.
