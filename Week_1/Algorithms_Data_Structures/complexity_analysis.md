@@ -1,11 +1,11 @@
-# Algorithms & Data Structures: Complexity Analysis
+# Custom Algorithms: Complexity Analysis
 
-This document provides a detailed technical analysis of the design choices and algorithmic complexities for the 2 exercises in the `AlgorithmsDataStructures` project.
+This document provides a detailed technical analysis of the design choices and algorithmic complexities for the 2 exercises in the `CustomDataStructures` project.
 
 ---
 
-## 1. E-commerce Platform Search Function
-* **Scenario**: Searching products by ID.
+## 1. StoreFront Search System
+* **Scenario**: Looking up items by their unique ID.
 * **Algorithms Compared**: Linear Search vs Binary Search.
 
 ### Complexities:
@@ -20,8 +20,8 @@ This document provides a detailed technical analysis of the design choices and a
 
 ---
 
-## 2. Financial Forecasting
-* **Scenario**: Predicting compounding value over $t$ growth periods recursively.
+## 2. Investment Growth Predictor
+* **Scenario**: Predicting compounding investment value over $t$ projection years recursively.
 * **Equations**: $FV = PV \times (1 + r)^t$.
 
 ### Complexities:

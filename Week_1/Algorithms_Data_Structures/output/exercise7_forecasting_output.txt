@@ -1,6 +1,0 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_1\Algorithms_Data_Structures> java -cp target/classes com.algorithms.forecasting.Main
-Present Value: $1000.0
-Growth Rate: 5.0%
-Periods: 10
-Recursive Forecasted Value: $1628.89
-Memoized Forecasted Value: $1628.89
