@@ -1,0 +1,41 @@
+<div class="course-card" [ngClass]="cardClasses" [ngStyle]="cardBorderStyle" [class.card--enrolled]="isEnrolled$ | async">
+  <div class="card-header">
+    <span class="course-code" (click)="navigateToDetail()" style="cursor: pointer;" title="Click to view details">{{ course.code }}</span>
+    <span class="course-credits">{{ course.credits | creditLabel }}</span>
+    
+    <div [ngSwitch]="course.gradeStatus" class="badge-container">
+      <span *ngSwitchCase="'passed'" class="badge badge-passed">Passed</span>
+      <span *ngSwitchCase="'failed'" class="badge badge-failed">Failed</span>
+      <span *ngSwitchDefault class="badge badge-pending">Pending</span>
+    </div>
+  </div>
+
+  <h3 class="course-name" (click)="navigateToDetail()" style="cursor: pointer;" title="Click to view details">
+    {{ course.name }}
+  </h3>
+
+  <div *ngIf="isExpanded" class="details-section">
+    <p class="description-text">
+      {{ course.description || 'Comprehensive course covering core concepts, practical labs, and real-world projects.' }}
+    </p>
+    <div class="details-meta">
+      <span>Status: <strong>{{ course.gradeStatus | uppercase }}</strong></span>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button (click)="navigateToDetail()" class="btn-secondary">
+      View Page
+    </button>
+    <ng-container *ngIf="(isEnrolled$ | async) as enrolled; else notEnrolled">
+      <button (click)="onEnrollToggle(true)" class="btn-card-enroll btn-unenroll">
+        Unenroll
+      </button>
+    </ng-container>
+    <ng-template #notEnrolled>
+      <button (click)="onEnrollToggle(false)" class="btn-card-enroll">
+        Enroll
+      </button>
+    </ng-template>
+  </div>
+</div>

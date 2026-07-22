@@ -1,0 +1,90 @@
+.detail-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.btn-back {
+  background: transparent;
+  color: #3b82f6;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+
+.detail-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.code-badge {
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.detail-header h2 {
+  margin: 0 0 1rem 0;
+  color: #0f172a;
+  font-size: 1.75rem;
+}
+
+.detail-meta {
+  display: flex;
+  gap: 2rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 1.5rem;
+  color: #475569;
+}
+
+.detail-body h3 {
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.detail-body p {
+  color: #475569;
+  line-height: 1.6;
+}
+
+.detail-actions {
+  margin-top: 2rem;
+}
+
+.btn-enroll-action {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-enroll-action.btn-drop {
+  background: #ef4444;
+}
+
+.not-found-banner {
+  background: white;
+  border: 1px dashed #fca5a5;
+  padding: 3rem;
+  text-align: center;
+  border-radius: 12px;
+  color: #991b1b;
+}

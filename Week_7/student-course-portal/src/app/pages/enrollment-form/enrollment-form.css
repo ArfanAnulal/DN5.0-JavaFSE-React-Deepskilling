@@ -1,0 +1,133 @@
+.form-container {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.form-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.form-header h2 {
+  margin: 0 0 0.5rem 0;
+  color: #0f172a;
+  font-size: 1.5rem;
+}
+
+.form-header p {
+  margin: 0 0 1.5rem 0;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.success-banner {
+  background-color: #dcfce7;
+  border: 1px solid #86efac;
+  color: #15803d;
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+/* Angular Form Validation State Classes */
+.form-control.ng-invalid.ng-touched {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2;
+}
+
+.form-control.ng-valid.ng-touched {
+  border-color: #22c55e !important;
+}
+
+.error-msg {
+  color: #dc2626;
+  font-size: 0.825rem;
+  margin-top: 0.35rem;
+  font-weight: 500;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.btn-submit {
+  flex: 2;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.btn-submit:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.btn-reset {
+  flex: 1;
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-reset:hover {
+  background-color: #e2e8f0;
+}

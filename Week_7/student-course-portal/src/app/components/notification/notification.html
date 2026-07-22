@@ -1,0 +1,10 @@
+<div class="notification-card">
+  <div class="notification-header">
+    <span class="badge">Scoped Service Instance #{{ instanceId }}</span>
+  </div>
+  <ul class="notification-list">
+    <li *ngFor="let note of notificationService.getNotifications()">
+      {{ note }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,36 @@
+<div class="profile-container">
+  <div class="profile-header-card">
+    <div class="avatar-circle">AM</div>
+    <div class="info-block">
+      <h2>{{ student.name }}</h2>
+      <p class="meta">ID: <strong>{{ student.id }}</strong> | {{ student.department }}</p>
+      <p class="email">{{ student.email }} | Cumulative GPA: <strong>{{ student.gpa }}</strong></p>
+    </div>
+  </div>
+
+  <div class="enrolled-section">
+    <h3>My Enrolled Courses (NgRx Cross-Slice Store)</h3>
+
+    <div *ngIf="(enrolledCourses$ | async) as enrolledList">
+      <div *ngIf="enrolledList.length > 0; else noEnrollments" class="enrolled-grid">
+        <div *ngFor="let c of enrolledList" class="enrolled-card">
+          <div class="enrolled-meta">
+            <span class="code">{{ c.code }}</span>
+            <span class="credits">{{ c.credits }} Credits</span>
+          </div>
+          <h4>{{ c.name }}</h4>
+          <button (click)="onUnenroll(c.id)" class="btn-drop">Unenroll</button>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noEnrollments>
+      <div class="empty-enrollment">
+        <p>You have not enrolled in any courses yet.</p>
+        <a routerLink="/courses" class="btn-browse">Browse Courses</a>
+      </div>
+    </ng-template>
+  </div>
+
+  <app-notification></app-notification>
+</div>

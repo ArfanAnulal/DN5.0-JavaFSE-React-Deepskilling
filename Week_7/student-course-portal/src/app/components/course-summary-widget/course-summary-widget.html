@@ -1,0 +1,11 @@
+<div class="summary-widget-card">
+  <div class="widget-header">
+    <h4>Course Summary Widget (Singleton Service Demo)</h4>
+    <span class="count-pill">{{ courses.length }} Courses</span>
+  </div>
+  <ul class="summary-list">
+    <li *ngFor="let c of courses">
+      <strong>{{ c.code }}</strong>: {{ c.name }} ({{ c.credits }} Credits)
+    </li>
+  </ul>
+</div>

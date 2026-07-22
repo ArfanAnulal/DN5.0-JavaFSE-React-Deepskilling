@@ -1,0 +1,40 @@
+.summary-widget-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.widget-header h4 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1rem;
+}
+
+.count-pill {
+  background-color: #e0e7ff;
+  color: #3730a3;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+.summary-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.summary-list li {
+  margin-bottom: 0.35rem;
+}

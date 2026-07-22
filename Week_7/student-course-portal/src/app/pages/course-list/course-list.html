@@ -1,0 +1,56 @@
+<div class="course-list-container">
+  <div class="header-banner">
+    <div class="banner-top">
+      <h2>Available Courses (NgRx Store Managed)</h2>
+      <div class="actions">
+        <button (click)="reloadCourses()" class="btn-reload">Reload via NgRx Dispatch</button>
+      </div>
+    </div>
+    <p>State managed via Redux pattern: Actions → Effects → Reducers → Selectors → Async Pipe.</p>
+
+    <div class="search-bar" style="margin-top: 1rem;">
+      <input
+        type="text"
+        [(ngModel)]="searchTerm"
+        (ngModelChange)="onSearchChange()"
+        placeholder="Filter courses by name/code (updates URL query param)..."
+        class="search-input" />
+      <span *ngIf="searchTerm" style="margin-left: 0.5rem; font-size: 0.85rem; color: #64748b;">
+        URL parameter: <code>?search={{ searchTerm }}</code>
+      </span>
+    </div>
+  </div>
+
+  <!-- API Error Banner -->
+  <div *ngIf="error$ | async as err" class="api-error-banner" style="background: #fef2f2; border: 1px solid #fca5a5; color: #b91c1c; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+    <strong>NgRx Error State:</strong> {{ err }}
+  </div>
+
+  <div *ngIf="isLoading$ | async" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading state active in NgRx Store...</p>
+  </div>
+
+  <div *ngIf="!(isLoading$ | async) && !(error$ | async)">
+    <div *ngIf="(courses$ | async) as coursesList">
+      <div *ngIf="coursesList.length > 0; else noCourses" class="course-grid">
+        <!-- Task 1: Render courses using async pipe -->
+        <app-course-card
+          *ngFor="let c of coursesList; let i = index; trackBy: trackByCourseId"
+          [course]="c"
+          (enrollRequested)="onEnroll($event)"
+          appHighlight="#e0f2fe">
+        </app-course-card>
+      </div>
+    </div>
+
+    <ng-template #noCourses>
+      <div class="no-courses-card">
+        <p class="no-courses-msg">No courses found in NgRx store.</p>
+        <button (click)="reloadCourses()" class="btn-primary">Reload Courses</button>
+      </div>
+    </ng-template>
+  </div>
+
+  <app-course-summary-widget></app-course-summary-widget>
+</div>

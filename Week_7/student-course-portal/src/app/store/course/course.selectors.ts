@@ -1,0 +1,20 @@
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { CourseState } from './course.reducer';
+
+// Task 1: Memoized Selectors for optimized state queries
+export const selectCourseState = createFeatureSelector<CourseState>('course');
+
+export const selectAllCourses = createSelector(
+  selectCourseState,
+  (state: CourseState) => state ? state.courses : []
+);
+
+export const selectCoursesLoading = createSelector(
+  selectCourseState,
+  (state: CourseState) => state ? state.loading : false
+);
+
+export const selectCoursesError = createSelector(
+  selectCourseState,
+  (state: CourseState) => state ? state.error : null
+);
