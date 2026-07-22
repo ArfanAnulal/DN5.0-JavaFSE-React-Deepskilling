@@ -1,4 +1,4 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringDataJPA\orm-learn> mvn spring-boot:run
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_2\SpringDataJPA\orm-learn> mvn spring-boot:run
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] ----------------------< com.cognizant:orm-learn >-----------------------
@@ -17,7 +17,7 @@ PS C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringDataJPA\orm-learn> mvn
 [INFO] Compiling 17 source files with javac [debug parameters release 17] to target\classes
 [INFO] 
 [INFO] --- resources:3.3.1:testResources (default-testResources) @ orm-learn ---
-[INFO] skip non existing resourceDirectory C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringDataJPA\orm-learn\src\test\resources
+[INFO] skip non existing resourceDirectory C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_2\SpringDataJPA\orm-learn\src\test\resources
 [INFO] 
 [INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ orm-learn ---
 [INFO] No sources to compile
@@ -35,7 +35,7 @@ PS C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringDataJPA\orm-learn> mvn
 
  :: Spring Boot ::                (v3.3.0)
 
-2026-06-18T14:13:07.746+05:30  INFO 10260 --- [           main] c.c.ormlearn.OrmLearnApplication         : Starting OrmLearnApplication using Java 22.0.2 with PID 10260 (C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringDataJPA\orm-learn\target\classes started by bened in C:\Users\bened\Downloads\Misson_Cognizant\Week_2\SpringDataJPA\orm-learn)
+2026-06-18T14:13:07.746+05:30  INFO 10260 --- [           main] c.c.ormlearn.OrmLearnApplication         : Starting OrmLearnApplication using Java 22.0.2 with PID 10260 (C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_2\SpringDataJPA\orm-learn\target\classes started by arfan in C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_2\SpringDataJPA\orm-learn)
 2026-06-18T14:13:07.747+05:30 DEBUG 10260 --- [           main] c.c.ormlearn.OrmLearnApplication         : Running with Spring Boot v3.3.0, Spring v6.1.8
 2026-06-18T14:13:07.748+05:30  INFO 10260 --- [           main] c.c.ormlearn.OrmLearnApplication         : No active profile set, falling back to 1 default profile: "default"
 2026-06-18T14:13:08.028+05:30  INFO 10260 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.

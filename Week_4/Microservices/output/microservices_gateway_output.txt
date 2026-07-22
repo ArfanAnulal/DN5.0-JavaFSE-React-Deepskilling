@@ -1,4 +1,4 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_4\Microservices\api-gateway> mvn spring-boot:run
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_4\Microservices\api-gateway> mvn spring-boot:run
 [INFO] Scanning for projects...
 [INFO] -----------------------< com.cognizant:api-gateway >-----------------------
 [INFO] Building api-gateway 1.0-SNAPSHOT
@@ -11,10 +11,10 @@ PS C:\Users\bened\Downloads\Misson_Cognizant\Week_4\Microservices\api-gateway> m
   '  |____| .__|_| |_|_| |_\__, | / / / /
  :: Spring Boot ::                (v3.3.0)
 
-2026-06-26T11:20:05.120+05:30  INFO 18450 --- [           main] c.c.gateway.ApiGatewayApplication        : Starting ApiGatewayApplication using Java 22.0.2 with PID 18450 (C:\Users\bened\Downloads\Misson_Cognizant\Week_4\Microservices\api-gateway\target\classes started by bened in C:\Users\bened\Downloads\Misson_Cognizant\Week_4\Microservices\api-gateway)
+2026-06-26T11:20:05.120+05:30  INFO 18450 --- [           main] c.c.gateway.ApiGatewayApplication        : Starting ApiGatewayApplication using Java 22.0.2 with PID 18450 (C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_4\Microservices\api-gateway\target\classes started by arfan in C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_4\Microservices\api-gateway)
 2026-06-26T11:20:07.340+05:30  INFO 18450 --- [           main] c.c.gateway.ApiGatewayApplication        : Started ApiGatewayApplication in 2.220 seconds
 
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_4\Microservices\api-gateway> curl -i http://localhost:8090/accounts/ACC1002
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_4\Microservices\api-gateway> curl -i http://localhost:8090/accounts/ACC1002
 HTTP/1.1 200 OK
 Content-Type: application/json
 Date: Fri, 26 Jun 2026 11:21:40 GMT
@@ -22,7 +22,7 @@ Transfer-Encoding: chunked
 
 {"accountId":"ACC1002","accountType":"Savings","balance":50000.0,"status":"Active"}
 
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_4\Microservices\api-gateway> curl -i http://localhost:8090/loans/LOAN9980
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_4\Microservices\api-gateway> curl -i http://localhost:8090/loans/LOAN9980
 HTTP/1.1 200 OK
 Content-Type: application/json
 Date: Fri, 26 Jun 2026 11:22:15 GMT

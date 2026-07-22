@@ -1,5 +1,5 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> mvn spring-boot:run
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> curl -i -H 'Content-Type: application/json' -X POST -d '{"code":"FR","name":"France"}' http://localhost:8090/countries
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> mvn spring-boot:run
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> curl -i -H 'Content-Type: application/json' -X POST -d '{"code":"FR","name":"France"}' http://localhost:8090/countries
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Content-Length: 32
@@ -13,7 +13,7 @@ Server Log:
 260622|15:45:30.121|http-nio-8090-exec-1| INFO|c.c.s.c.CountryController| addCountry               | END addCountry
 
 
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> curl -i -H 'Content-Type: application/json' -X POST -d '{"code":"F","name":"France"}' http://localhost:8090/countries
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> curl -i -H 'Content-Type: application/json' -X POST -d '{"code":"F","name":"France"}' http://localhost:8090/countries
 HTTP/1.1 400 Bad Request
 Content-Type: application/json;charset=UTF-8
 Connection: close

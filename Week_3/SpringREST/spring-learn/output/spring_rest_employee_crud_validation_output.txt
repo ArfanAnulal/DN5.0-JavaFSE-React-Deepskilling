@@ -1,5 +1,5 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> mvn spring-boot:run
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> curl -i -H 'Content-Type: application/json' -X PUT -d '{"id":3,"name":"Bob Johnson","salary":62000.0,"permanent":false,"dateOfBirth":"03/11/1998","department":{"id":2,"name":"HR"},"skillList":[{"id":1,"name":"Java"}]}' http://localhost:8090/employees
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> mvn spring-boot:run
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> curl -i -H 'Content-Type: application/json' -X PUT -d '{"id":3,"name":"Bob Johnson","salary":62000.0,"permanent":false,"dateOfBirth":"03/11/1998","department":{"id":2,"name":"HR"},"skillList":[{"id":1,"name":"Java"}]}' http://localhost:8090/employees
 HTTP/1.1 200 OK
 Content-Length: 0
 Date: Tue, 23 Jun 2026 09:30:10 GMT
@@ -10,7 +10,7 @@ Server Log:
 260623|15:00:10.023|http-nio-8090-exec-1| INFO|c.c.s.c.EmployeeController| updateEmployee           | END updateEmployee
 
 
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> curl -s http://localhost:8090/employees | grep -A 5 -B 1 '"id":3'
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> curl -s http://localhost:8090/employees | grep -A 5 -B 1 '"id":3'
   {
     "id": 3,
     "name": "Bob Johnson",
@@ -24,7 +24,7 @@ PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> cur
   }
 
 
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> curl -i -H 'Content-Type: application/json' -X PUT -d '{"id":"NOT_AN_ID","name":"Bob"}' http://localhost:8090/employees
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> curl -i -H 'Content-Type: application/json' -X PUT -d '{"id":"NOT_AN_ID","name":"Bob"}' http://localhost:8090/employees
 HTTP/1.1 400 Bad Request
 Content-Type: application/json;charset=UTF-8
 Date: Tue, 23 Jun 2026 09:35:45 GMT
@@ -41,7 +41,7 @@ Server Log:
 260623|15:05:45.148|http-nio-8090-exec-2| INFO|com.cognizant.springlearn.GlobalExceptionHandler | handleHttpMessageNotReadable | END handleHttpMessageNotReadable
 
 
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> curl -i -X DELETE http://localhost:8090/employees/4
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> curl -i -X DELETE http://localhost:8090/employees/4
 HTTP/1.1 200 OK
 Content-Length: 0
 Date: Tue, 23 Jun 2026 09:40:20 GMT
@@ -51,7 +51,7 @@ Server Log:
 260623|15:10:20.302|http-nio-8090-exec-3| INFO|c.c.s.c.EmployeeController| deleteEmployee           | END deleteEmployee
 
 
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> curl -s http://localhost:8090/employees
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> curl -s http://localhost:8090/employees
 [
   {"id":1,"name":"John Doe","salary":85000.0,"permanent":true,"dateOfBirth":"12/04/1995","department":{"id":1,"name":"IT"},"skillList":[{"id":1,"name":"Java"},{"id":2,"name":"Spring Boot"},{"id":3,"name":"SQL"}]},
   {"id":2,"name":"Jane Smith","salary":90000.0,"permanent":true,"dateOfBirth":"25/08/1992","department":{"id":3,"name":"Finance"},"skillList":[{"id":3,"name":"SQL"}]},

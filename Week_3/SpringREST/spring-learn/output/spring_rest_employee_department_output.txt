@@ -1,5 +1,5 @@
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> mvn spring-boot:run
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> curl -i http://localhost:8090/employees
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> mvn spring-boot:run
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> curl -i http://localhost:8090/employees
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: Sun, 21 Jun 2026 11:20:00 GMT
@@ -71,7 +71,7 @@ Server Log:
 260621|16:50:00.017|http-nio-8090-exec-1| INFO|c.c.s.c.EmployeeController| getAllEmployees          | END getAllEmployees
 
 
-PS C:\Users\bened\Downloads\Misson_Cognizant\Week_3\SpringREST\spring-learn> curl -i http://localhost:8090/departments
+PS C:\Users\arfan\Documents\Cognizant\DN5.0-JavaFSE-React-Deepskilling\Week_3\SpringREST\spring-learn> curl -i http://localhost:8090/departments
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Date: Sun, 21 Jun 2026 11:22:15 GMT

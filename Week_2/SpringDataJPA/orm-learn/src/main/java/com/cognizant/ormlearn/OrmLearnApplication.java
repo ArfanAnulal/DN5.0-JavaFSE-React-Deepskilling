@@ -63,6 +63,16 @@ public class OrmLearnApplication {
             testFindCountriesContainingOrderByNameAsc("ou");
             System.out.println("\n--- 9. Testing Find Countries Starting with 'Z' ---");
             testFindCountriesStartingWith("Z");
+        } else if ("stocks".equalsIgnoreCase(mode)) {
+            System.out.println("=== Spring Data JPA Stock Tests Execution Output ===");
+            System.out.println("\n--- 1. Testing Facebook Sept 2019 Stocks ---");
+            testFacebookSept2019();
+            System.out.println("\n--- 2. Testing Google Stocks Above 1250 ---");
+            testGoogleAbove1250();
+            System.out.println("\n--- 3. Testing Top 3 Highest Volume Stocks ---");
+            testTop3HighestVolume();
+            System.out.println("\n--- 4. Testing Top 3 Lowest Netflix Stocks ---");
+            testTop3LowestNetflix();
         } else {
             System.out.println("=== Spring Data JPA & Hibernate Execution Output ===");
             System.out.println("\n--- 1. Testing Get Employee (ID: 1) ---");
