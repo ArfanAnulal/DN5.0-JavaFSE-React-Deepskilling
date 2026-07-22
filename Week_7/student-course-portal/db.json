@@ -1,0 +1,74 @@
+{
+  "courses": [
+    {
+      "id": "101",
+      "name": "Angular Architecture & State Management",
+      "code": "CS101",
+      "credits": 4,
+      "gradeStatus": "passed",
+      "description": "Master components, directives, pipes, dependency injection, and state management."
+    },
+    {
+      "id": "102",
+      "name": "Data Structures & Algorithms in Java",
+      "code": "CS102",
+      "credits": 3,
+      "gradeStatus": "passed",
+      "description": "In-depth exploration of arrays, trees, graphs, sorting algorithms, and complexity analysis."
+    },
+    {
+      "id": "103",
+      "name": "Spring Boot RESTful Web Services",
+      "code": "CS103",
+      "credits": 4,
+      "gradeStatus": "pending",
+      "description": "Build enterprise-grade microservices with Spring REST, JPA, and Security."
+    },
+    {
+      "id": "104",
+      "name": "Database Management Systems & SQL",
+      "code": "CS104",
+      "credits": 3,
+      "gradeStatus": "failed",
+      "description": "Relational database design, normalization, complex SQL queries, and indexing."
+    },
+    {
+      "id": "105",
+      "name": "Full Stack React & Modern Web Dev",
+      "code": "CS105",
+      "credits": 3,
+      "gradeStatus": "pending",
+      "description": "Modern frontend development with React hooks, router, and context API."
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "Alex Mercer",
+      "email": "alex.mercer@university.edu",
+      "enrolledCourseIds": [101, 103]
+    },
+    {
+      "id": "2",
+      "name": "Samantha Reed",
+      "email": "samantha.reed@university.edu",
+      "enrolledCourseIds": [101, 102]
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "1",
+      "studentId": 1,
+      "courseId": 101,
+      "semester": "Odd",
+      "enrollmentDate": "2026-01-15"
+    },
+    {
+      "id": "2",
+      "studentId": 1,
+      "courseId": 103,
+      "semester": "Even",
+      "enrollmentDate": "2026-02-01"
+    }
+  ]
+}

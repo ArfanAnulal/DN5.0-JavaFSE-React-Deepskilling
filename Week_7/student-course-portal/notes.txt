@@ -1,0 +1,32 @@
+Angular Project File Explanations (Student Course Portal)
+===========================================================
+
+1. angular.json:
+   Main workspace configuration file for Angular CLI. Defines project architecture, build options, asset paths, schematics settings, and build configurations (production/development).
+
+2. tsconfig.json:
+   Root TypeScript compiler configuration file for the workspace, specifying global compiler options, target JS version, module resolution, and path aliases.
+
+3. tsconfig.app.json:
+   App-specific TypeScript configuration extending tsconfig.json, specifying files to include and compile specifically for the Angular application bundle.
+
+4. package.json:
+   Node.js project manifest listing all runtime dependencies (@angular/core, rxjs, etc.), devDependencies (@angular/cli, typescript, karma, etc.), and execution scripts (ng serve, ng build, ng test).
+
+5. src/main.ts:
+   Application entry point. Initializes the Angular platform and bootstraps the root module (AppModule) to start the SPA execution loop.
+
+6. src/app/app-module.ts (or app.module.ts):
+   Root NgModule declaration class that declares components, imports external modules (BrowserModule, AppRoutingModule), configures providers, and bootstraps the root App component.
+
+7. src/app/app.ts (or app.component.ts):
+   Root component class (@Component) that serves as the top-level container for the application layout.
+
+8. src/index.html:
+   Primary single-page HTML document containing standard head metadata, stylesheets, and the <app-root> selector host element.
+
+9. Budgets Configuration (architect > build > configurations > production):
+   - Type 'initial': Set to maximumWarning: 500kB, maximumError: 1MB. Controls total size of initial bundle loaded on app startup.
+   - Type 'anyComponentStyle': Set to maximumWarning: 4kB, maximumError: 8kB. Controls individual CSS file sizes.
+   - maximumWarning: Triggers build-time warning logs when output bundle size exceeds specified threshold.
+   - maximumError: Fails the build with exit code 1 if bundle size breaches threshold, enforcing strict performance boundaries.

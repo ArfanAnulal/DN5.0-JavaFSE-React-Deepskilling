@@ -19,4 +19,6 @@ docs/
 
 # Local/Workspace specific backup folder exclusion
 backup_temp/
+Angular_HandsOn.md
+Angular_HandsOn.pdf
 
