@@ -6,16 +6,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="country")
+@Table(name = "country")
 public class Country {
+
     @Id
-    @Column(name="co_code", length=2)
+    @Column(name = "co_code", length = 2)
     private String code;
 
-    @Column(name="co_name", length=50)
+    @Column(name = "co_name", length = 50)
     private String name;
 
-    public Country() {}
+    public Country() {
+    }
 
     public Country(String code, String name) {
         this.code = code;
@@ -40,6 +42,6 @@ public class Country {
 
     @Override
     public String toString() {
-        return "Country[code=" + code + ", name=" + name + "]";
+        return "Country [code=" + code + ", name=" + name + "]";
     }
 }

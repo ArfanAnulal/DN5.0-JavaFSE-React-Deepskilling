@@ -9,13 +9,12 @@ import java.util.Map;
 @RestController
 public class AccountController {
 
-    @GetMapping("/accounts/{id}")
-    public Map<String, Object> getAccount(@PathVariable String id) {
-        Map<String, Object> account = new HashMap<>();
-        account.put("accountId", id);
-        account.put("accountType", "Savings");
-        account.put("balance", 50000.0);
-        account.put("status", "Active");
-        return account;
+    @GetMapping("/accounts/{number}")
+    public Map<String, Object> getAccountDetails(@PathVariable("number") String number) {
+        Map<String, Object> accountMap = new HashMap<>();
+        accountMap.put("number", number);
+        accountMap.put("type", "savings");
+        accountMap.put("balance", 234343);
+        return accountMap;
     }
 }

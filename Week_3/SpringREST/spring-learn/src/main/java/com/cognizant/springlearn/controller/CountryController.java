@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
@@ -23,40 +25,40 @@ public class CountryController {
     @Autowired
     private CountryService countryService;
 
-    @GetMapping("/country")
+    @RequestMapping(value = "/country", method = RequestMethod.GET)
     public Country getCountryIndia() {
         LOGGER.info("START getCountryIndia");
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("country.xml")) {
-            Country country = context.getBean("country", Country.class);
-            LOGGER.debug("Country: {}", country);
+            Country indiaBean = context.getBean("country", Country.class);
+            LOGGER.debug("Fetched India Country Bean: {}", indiaBean);
             LOGGER.info("END getCountryIndia");
-            return country;
+            return indiaBean;
         }
     }
 
     @GetMapping("/countries")
     public List<Country> getAllCountries() {
         LOGGER.info("START getAllCountries");
-        List<Country> list = countryService.getAllCountries();
-        LOGGER.debug("Countries size: {}", list.size());
+        List<Country> countryList = countryService.getAllCountries();
+        LOGGER.debug("Total Countries Loaded: {}", countryList.size());
         LOGGER.info("END getAllCountries");
-        return list;
+        return countryList;
     }
 
-    @GetMapping("/countries/{code}")
+    @GetMapping({"/countries/{code}", "/country/{code}"})
     public Country getCountry(@PathVariable("code") String code) throws CountryNotFoundException {
-        LOGGER.info("START getCountry {}", code);
-        Country country = countryService.getCountry(code);
-        LOGGER.debug("Country fetched: {}", country);
+        LOGGER.info("START getCountry with code: {}", code);
+        Country targetCountry = countryService.getCountry(code);
+        LOGGER.debug("Found Country: {}", targetCountry);
         LOGGER.info("END getCountry");
-        return country;
+        return targetCountry;
     }
 
     @PostMapping("/countries")
-    public Country addCountry(@RequestBody @Valid Country country) {
+    public Country addCountry(@RequestBody @Valid Country countryPayload) {
         LOGGER.info("START addCountry");
-        LOGGER.debug("Country payload: {}", country);
+        LOGGER.debug("Received Country Payload: {}", countryPayload);
         LOGGER.info("END addCountry");
-        return country;
+        return countryPayload;
     }
 }

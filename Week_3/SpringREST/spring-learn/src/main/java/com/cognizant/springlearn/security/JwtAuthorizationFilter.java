@@ -23,50 +23,50 @@ import java.util.ArrayList;
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthorizationFilter.class);
-    private static final String SECRET = "secretkeysecretkeysecretkeysecretkey"; // 36 bytes
+    private static final String SECRET_KEY = "secretkeysecretkeysecretkeysecretkey"; // 36 bytes
 
     public JwtAuthorizationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
-        LOGGER.info("Start JwtAuthorizationFilter Constructor");
+        LOGGER.info("Initializing JwtAuthorizationFilter");
     }
 
     @Override
     protected void doFilterInternal(HttpServletRequest req, HttpServletResponse res,
             FilterChain chain) throws IOException, ServletException {
-        LOGGER.info("START doFilterInternal");
+        LOGGER.info("START doFilterInternal processing");
         String header = req.getHeader("Authorization");
-        LOGGER.debug("Authorization Header: {}", header);
+        LOGGER.debug("Incoming Authorization Header: {}", header);
 
         if (header == null || !header.startsWith("Bearer ")) {
             chain.doFilter(req, res);
             return;
         }
 
-        UsernamePasswordAuthenticationToken authentication = getAuthentication(req);
-        if (authentication != null) {
-            SecurityContextHolder.getContext().setAuthentication(authentication);
+        UsernamePasswordAuthenticationToken authToken = getAuthentication(req);
+        if (authToken != null) {
+            SecurityContextHolder.getContext().setAuthentication(authToken);
         }
         chain.doFilter(req, res);
-        LOGGER.info("END doFilterInternal");
+        LOGGER.info("END doFilterInternal processing");
     }
 
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
-        String token = request.getHeader("Authorization");
-        if (token != null) {
+        String tokenHeader = request.getHeader("Authorization");
+        if (tokenHeader != null) {
             try {
-                Key key = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
-                Jws<Claims> jws = Jwts.parserBuilder()
-                        .setSigningKey(key)
+                Key signingKey = Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
+                Jws<Claims> claimsJws = Jwts.parserBuilder()
+                        .setSigningKey(signingKey)
                         .build()
-                        .parseClaimsJws(token.replace("Bearer ", ""));
+                        .parseClaimsJws(tokenHeader.replace("Bearer ", "").trim());
                 
-                String user = jws.getBody().getSubject();
-                LOGGER.debug("Decoded user: {}", user);
-                if (user != null) {
-                    return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
+                String username = claimsJws.getBody().getSubject();
+                LOGGER.debug("Successfully validated JWT for user: {}", username);
+                if (username != null) {
+                    return new UsernamePasswordAuthenticationToken(username, null, new ArrayList<>());
                 }
             } catch (JwtException ex) {
-                LOGGER.error("JWT validation failed: {}", ex.getMessage());
+                LOGGER.error("JWT verification failed: {}", ex.getMessage());
                 return null;
             }
         }

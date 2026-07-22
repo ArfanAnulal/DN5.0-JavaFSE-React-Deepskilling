@@ -11,6 +11,8 @@ import com.cognizant.ormlearn.service.EmployeeService;
 import com.cognizant.ormlearn.service.DepartmentService;
 import com.cognizant.ormlearn.service.SkillService;
 import com.cognizant.ormlearn.service.exception.CountryNotFoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -22,6 +24,8 @@ import java.text.SimpleDateFormat;
 @SpringBootApplication
 public class OrmLearnApplication {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrmLearnApplication.class);
+
     private static CountryService countryService;
     private static StockService stockService;
     private static EmployeeService employeeService;
@@ -29,8 +33,10 @@ public class OrmLearnApplication {
     private static SkillService skillService;
 
     public static void main(String[] args) {
-        String mode = System.getProperty("mode", "june18");
+        String mode = System.getProperty("mode", "june17");
         ApplicationContext context = SpringApplication.run(OrmLearnApplication.class, args);
+        LOGGER.info("Inside main execution");
+
         countryService = context.getBean(CountryService.class);
         stockService = context.getBean(StockService.class);
         employeeService = context.getBean(EmployeeService.class);
@@ -38,7 +44,7 @@ public class OrmLearnApplication {
         skillService = context.getBean(SkillService.class);
 
         if ("june17".equalsIgnoreCase(mode)) {
-            System.out.println("=== Spring Data JPA & Hibernate Execution Output (June 17) ===");
+            System.out.println("=== Spring Data JPA & Hibernate Execution Output ===");
             System.out.println("\n--- 1. Testing Get All Countries ---");
             testGetAllCountries();
             System.out.println("\n--- 2. Testing Find Country By Code (IN) ---");
@@ -57,48 +63,36 @@ public class OrmLearnApplication {
             testFindCountriesContainingOrderByNameAsc("ou");
             System.out.println("\n--- 9. Testing Find Countries Starting with 'Z' ---");
             testFindCountriesStartingWith("Z");
-            System.out.println("\n--- 10. Testing Facebook Sept 2019 Stocks ---");
-            testFacebookSept2019();
-            System.out.println("\n--- 11. Testing Google close price > 1250 Stocks ---");
-            testGoogleAbove1250();
-            System.out.println("\n--- 12. Testing Top 3 Highest Volume Stocks ---");
-            testTop3HighestVolume();
-            System.out.println("\n--- 13. Testing Top 3 Lowest Netflix Stocks ---");
-            testTop3LowestNetflix();
         } else {
-            System.out.println("=== Spring Data JPA & Hibernate Execution Output (June 18) ===");
+            System.out.println("=== Spring Data JPA & Hibernate Execution Output ===");
             System.out.println("\n--- 1. Testing Get Employee (ID: 1) ---");
             testGetEmployee();
-
             System.out.println("\n--- 2. Testing Add Employee ---");
             testAddEmployee();
-
             System.out.println("\n--- 3. Testing Update Employee ---");
             testUpdateEmployee();
-
             System.out.println("\n--- 4. Testing Get Department (ID: 1) ---");
             testGetDepartment();
-
             System.out.println("\n--- 5. Testing Add Skill to Employee ---");
             testAddSkillToEmployee();
-
             System.out.println("\n--- 6. Testing Get All Permanent Employees (HQL Fetch Join) ---");
             testGetAllPermanentEmployees();
-
             System.out.println("\n--- 7. Testing Get Average Salary (Department ID: 1) ---");
             testGetAverageSalary();
-
             System.out.println("\n--- 8. Testing Get All Employees (Native Query) ---");
             testGetAllEmployeesNative();
         }
     }
 
     private static void testGetAllCountries() {
+        LOGGER.info("Start testGetAllCountries");
         List<Country> countries = countryService.getAllCountries();
+        LOGGER.debug("countries={}", countries);
         System.out.println("All Countries size: " + countries.size());
         for (Country c : countries) {
             System.out.println("Code: " + c.getCode() + ", Name: " + c.getName());
         }
+        LOGGER.info("End testGetAllCountries");
     }
 
     private static void testFindCountryByCode(String code) {
@@ -255,7 +249,6 @@ public class OrmLearnApplication {
         Department department = departmentService.get(1); // IT
         if (department != null) {
             System.out.println("Department: " + department.getName());
-            // Fetch list in transaction context or show count if EAGER was set
             System.out.println("Employees in Department: " + (department.getEmployeeList() != null ? department.getEmployeeList().size() : 0));
         } else {
             System.out.println("Department ID 1 not found");
@@ -300,4 +293,3 @@ public class OrmLearnApplication {
         }
     }
 }
-

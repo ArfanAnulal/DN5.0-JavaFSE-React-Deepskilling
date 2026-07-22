@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 class Home extends Component {
-    render() {
-        return <h1>Welcome to the Home page of Student Management Portal</h1>;
-    }
+  render() {
+    return (
+      <div className="card home-card">
+        <h3>Welcome to the Home page of Student Management Portal</h3>
+      </div>
+    );
+  }
 }
 
 export default Home;

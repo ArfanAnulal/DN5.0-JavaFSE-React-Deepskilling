@@ -14,8 +14,8 @@ public class CountryService {
     public CountryService() {
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("country.xml")) {
             @SuppressWarnings("unchecked")
-            List<Country> list = (List<Country>) context.getBean("countryList");
-            this.countries = list;
+            List<Country> catalog = (List<Country>) context.getBean("countryList");
+            this.countries = catalog;
         }
     }
 
@@ -25,7 +25,7 @@ public class CountryService {
 
     public Country getCountry(String code) throws CountryNotFoundException {
         return countries.stream()
-                .filter(c -> c.getCode().equalsIgnoreCase(code))
+                .filter(country -> country.getCode().equalsIgnoreCase(code))
                 .findFirst()
                 .orElseThrow(() -> new CountryNotFoundException("Country with code " + code + " not found"));
     }

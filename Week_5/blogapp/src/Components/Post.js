@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
 class Post extends Component {
-    render() {
-        const { title, content, author } = this.props;
-        return (
-            <div className="post">
-                <h2>{title}</h2>
-                <p>{content}</p>
-                <p><em>By {author}</em></p>
-            </div>
-        );
-    }
+  render() {
+    const { title, body, id } = this.props;
+    return (
+      <article className="post-card">
+        <span className="post-id">Post #{id}</span>
+        <h3 className="post-title">{title}</h3>
+        <p className="post-body">{body}</p>
+      </article>
+    );
+  }
 }
 
 export default Post;

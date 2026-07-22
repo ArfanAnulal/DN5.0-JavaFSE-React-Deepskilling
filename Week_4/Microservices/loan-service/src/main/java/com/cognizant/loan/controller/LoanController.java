@@ -9,14 +9,14 @@ import java.util.Map;
 @RestController
 public class LoanController {
 
-    @GetMapping("/loans/{id}")
-    public Map<String, Object> getLoan(@PathVariable String id) {
-        Map<String, Object> loan = new HashMap<>();
-        loan.put("loanId", id);
-        loan.put("loanType", "Home Loan");
-        loan.put("amount", 2500000.0);
-        loan.put("tenureMonths", 240);
-        loan.put("status", "Approved");
-        return loan;
+    @GetMapping("/loans/{number}")
+    public Map<String, Object> getLoanDetails(@PathVariable("number") String number) {
+        Map<String, Object> loanMap = new HashMap<>();
+        loanMap.put("number", number);
+        loanMap.put("type", "car");
+        loanMap.put("loan", 400000);
+        loanMap.put("emi", 3258);
+        loanMap.put("tenure", 18);
+        return loanMap;
     }
 }

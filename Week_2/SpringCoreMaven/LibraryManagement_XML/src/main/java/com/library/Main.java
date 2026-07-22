@@ -2,23 +2,24 @@ package com.library;
 
 import com.library.service.BookService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== Spring XML Configuration & AOP Execution Output ===");
-        
-        // Load the XML Application Context (Exercise 1, 5)
+        System.out.println("=== Library Management System (Spring IoC & DI Demo) ===");
+
+        // Load Application Context from XML Configuration (Exercise 1)
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml")) {
-            // Retrieve injected BookService bean (Exercise 2)
-            BookService service = (BookService) context.getBean("bookService");
-            
-            // Execute operations to trigger AOP advices (Exercise 3, 8)
-            System.out.println("\n--- Executing service.addBook() ---");
-            service.addBook("Effective Java");
-            
-            System.out.println("\n--- Executing service.listBooks() ---");
-            java.util.List<String> books = service.listBooks();
-            System.out.println("Result Library books: " + books);
+
+            // Retrieve the wired BookService bean (Exercise 2)
+            BookService bookService = context.getBean("bookService", BookService.class);
+
+            System.out.println("\n--- Testing Book Addition ---");
+            bookService.addBook("Spring Boot in Action");
+
+            System.out.println("\n--- Fetching Library Catalog ---");
+            List<String> books = bookService.listBooks();
+            System.out.println("Updated Library Catalog: " + books);
         }
     }
 }

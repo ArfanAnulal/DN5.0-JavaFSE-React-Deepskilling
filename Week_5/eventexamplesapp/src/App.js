@@ -3,47 +3,84 @@ import './App.css';
 import CurrencyConverter from './Components/CurrencyConverter';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { counter: 0 };
-    }
-
-    increment = () => {
-        this.setState({ counter: this.state.counter + 1 });
-        alert('Hello! Counter incremented.');
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 0
     };
+  }
 
-    decrement = () => {
-        this.setState({ counter: this.state.counter - 1 });
-    };
+  // Method 1: Increment Counter
+  incrementCounter = () => {
+    this.setState(prevState => ({ counter: prevState.counter + 1 }));
+  };
 
-    sayWelcome = (msg) => {
-        alert(msg);
-    };
+  // Method 2: Say Hello Message
+  sayHello = () => {
+    alert('Hello! Welcome to React Synthetic Event Handling.');
+  };
 
-    handlePress = () => {
-        alert('I was clicked');
-    };
+  // Multiple methods invocation handler
+  handleIncreaseClick = () => {
+    this.incrementCounter();
+    this.sayHello();
+  };
 
-    render() {
-        return (
-            <div className="App">
-                <h1>Event Examples App</h1>
+  // Decrement Counter
+  decrementCounter = () => {
+    this.setState(prevState => ({ counter: prevState.counter - 1 }));
+  };
 
-                <h2>Counter: {this.state.counter}</h2>
-                <button onClick={this.increment}>Increment</button>
-                <button onClick={this.decrement}>Decrement</button>
+  // Function accepting custom parameter
+  sayWelcome = (greeting) => {
+    alert(`Greeting Message: ${greeting}`);
+  };
 
-                <br /><br />
-                <button onClick={() => alert('Hello static message!')}>Say Hello</button>
-                <button onClick={() => this.sayWelcome('welcome')}>Say Welcome</button>
-                <button onClick={this.handlePress}>OnPress</button>
+  // Synthetic event handler
+  handlePressSynthetic = (event) => {
+    alert(`Synthetic Event [${event.type}] Triggered! Message: I was clicked`);
+  };
 
-                <hr />
-                <CurrencyConverter />
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <h1>React Event Handling Demonstration</h1>
+        </header>
+
+        <main className="container">
+          <section className="event-section">
+            <h2>Counter & Event Handlers</h2>
+            <h3 className="counter-display">Current Count: {this.state.counter}</h3>
+            
+            <div className="button-group">
+              <button className="btn btn-primary" onClick={this.handleIncreaseClick}>
+                Increment (Multiple Methods)
+              </button>
+              <button className="btn btn-secondary" onClick={this.decrementCounter}>
+                Decrement
+              </button>
             </div>
-        );
-    }
+
+            <div className="button-group">
+              <button className="btn btn-info" onClick={() => this.sayWelcome('welcome')}>
+                Say Welcome
+              </button>
+              <button className="btn btn-warning" onClick={this.handlePressSynthetic}>
+                OnPress (Synthetic Event)
+              </button>
+            </div>
+          </section>
+
+          <hr className="divider" />
+
+          <section className="converter-section">
+            <CurrencyConverter />
+          </section>
+        </main>
+      </div>
+    );
+  }
 }
 
 export default App;

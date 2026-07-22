@@ -1,30 +1,75 @@
 import React from 'react';
 import './App.css';
+import CohortDetails from './Components/CohortDetails';
 
-const officeSpaces = [
-    { id: 1, name: 'CoWork Hub', rent: 45000, address: '123 MG Road, Bangalore' },
-    { id: 2, name: 'BizCenter', rent: 75000, address: '456 Brigade Road, Bangalore' },
-    { id: 3, name: 'Workspace Pro', rent: 55000, address: '789 Koramangala, Bangalore' },
-    { id: 4, name: 'Executive Suite', rent: 90000, address: '321 Indiranagar, Bangalore' }
+const officeSpacesList = [
+  { id: 1, name: 'DBS Tech Park', rent: 50000, address: 'OMR, Chennai' },
+  { id: 2, name: 'JSB Executive Hub', rent: 65000, address: 'Hitec City, Hyderabad' },
+  { id: 3, name: 'KPT Business Center', rent: 55000, address: 'Koramangala, Bangalore' },
+  { id: 4, name: 'Regus Prestige Suites', rent: 85000, address: 'BKC, Mumbai' }
+];
+
+const sampleSingleOffice = {
+  name: 'DBS Tech Park',
+  rent: 50000,
+  address: 'OMR, Chennai'
+};
+
+const cohortsList = [
+  { id: 1, title: 'GENAI - Java FSE', status: 'ongoing', track: 'Java & React Deepskilling', startDate: '2026-06-01' },
+  { id: 2, title: 'Cloud Native AWS', status: 'completed', track: 'AWS Architecture', startDate: '2026-03-15' },
+  { id: 3, title: 'Data Engineering', status: 'ongoing', track: 'Big Data & Spark', startDate: '2026-05-10' }
 ];
 
 function App() {
-    return (
-        <div className="App">
-            <h1>Office Space Rental App</h1>
-            <img src="https://via.placeholder.com/600x200?text=Office+Space" alt="Office Space" />
+  const officeImageSrc = "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80";
 
-            {officeSpaces.map(space => (
-                <div key={space.id} className="office-card">
-                    <h3>{space.name}</h3>
-                    <p><strong>Address:</strong> {space.address}</p>
-                    <p style={{ color: space.rent < 60000 ? 'red' : 'green', fontWeight: 'bold' }}>
-                        <strong>Rent:</strong> ₹{space.rent.toLocaleString()}
-                    </p>
-                </div>
-            ))}
+  return (
+    <div className="App">
+      <header className="main-header">
+        <h1>Office Space, at Affordable Range</h1>
+      </header>
+
+      <div className="banner-container">
+        <img src={officeImageSrc} alt="Modern Office Space" className="office-banner" />
+      </div>
+
+      <section className="featured-section">
+        <h2>Featured Office Space</h2>
+        <div className="office-card single-card">
+          <h3>Name: {sampleSingleOffice.name}</h3>
+          <h3 style={{ color: sampleSingleOffice.rent < 60000 ? 'red' : 'green' }}>
+            Rent: ₹{sampleSingleOffice.rent.toLocaleString()}
+          </h3>
+          <h3>Address: {sampleSingleOffice.address}</h3>
         </div>
-    );
+      </section>
+
+      <section className="catalog-section">
+        <h2>Available Office Spaces List</h2>
+        <div className="office-grid">
+          {officeSpacesList.map(item => (
+            <div key={item.id} className="office-card">
+              <h3>Name: {item.name}</h3>
+              <h3 style={{ color: item.rent < 60000 ? 'red' : 'green' }}>
+                Rent: ₹{item.rent.toLocaleString()}
+              </h3>
+              <h3>Address: {item.address}</h3>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="cohorts-section">
+        <h2>Cognizant Academy Cohorts</h2>
+        <div className="cohorts-container">
+          {cohortsList.map(cohort => (
+            <CohortDetails key={cohort.id} cohort={cohort} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 }
 
 export default App;

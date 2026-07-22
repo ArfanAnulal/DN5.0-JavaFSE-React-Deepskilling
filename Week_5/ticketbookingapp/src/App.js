@@ -1,56 +1,55 @@
 import React, { useState } from 'react';
 import './App.css';
-
-const flights = [
-    { id: 'AI101', from: 'Delhi', to: 'Mumbai', time: '06:00', price: 5000 },
-    { id: 'SG202', from: 'Bangalore', to: 'Chennai', time: '08:30', price: 3500 },
-    { id: '6E303', from: 'Mumbai', to: 'Delhi', time: '14:00', price: 4500 }
-];
-
-function GuestPage() {
-    return (
-        <div>
-            <h2>Guest View - Browse Flights</h2>
-            <p>Please log in to book tickets.</p>
-            {flights.map(f => (
-                <div key={f.id} className="flight-card">
-                    <p><strong>{f.id}</strong>: {f.from} → {f.time} → {f.to} - ₹{f.price}</p>
-                </div>
-            ))}
-        </div>
-    );
-}
-
-function UserPage() {
-    return (
-        <div>
-            <h2>User Dashboard - Book Tickets</h2>
-            {flights.map(f => (
-                <div key={f.id} className="flight-card">
-                    <p><strong>{f.id}</strong>: {f.from} → {f.time} → {f.to} - ₹{f.price}</p>
-                    <button>Book Now</button>
-                </div>
-            ))}
-        </div>
-    );
-}
+import GuestPage from './Components/GuestPage';
+import UserPage from './Components/UserPage';
+import Greeting from './Components/Greeting';
 
 function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    return (
-        <div className="App">
-            <h1>Ticket Booking App</h1>
-            <div className="auth-bar">
-                {isLoggedIn ? (
-                    <button onClick={() => setIsLoggedIn(false)}>Logout</button>
-                ) : (
-                    <button onClick={() => setIsLoggedIn(true)}>Login</button>
-                )}
-            </div>
-            {isLoggedIn ? <UserPage /> : <GuestPage />}
-        </div>
+  const handleLoginClick = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogoutClick = () => {
+    setIsLoggedIn(false);
+  };
+
+  // Element Variable Conditional Rendering Demonstration
+  let mainContent;
+  let authButton;
+
+  if (isLoggedIn) {
+    mainContent = <UserPage />;
+    authButton = (
+      <button className="auth-btn logout-btn" onClick={handleLogoutClick}>
+        Logout
+      </button>
     );
+  } else {
+    mainContent = <GuestPage />;
+    authButton = (
+      <button className="auth-btn login-btn" onClick={handleLoginClick}>
+        Login
+      </button>
+    );
+  }
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Flight Ticket Booking Portal</h1>
+        <div className="header-actions">
+          <Greeting isLoggedIn={isLoggedIn} />
+          {authButton}
+        </div>
+      </header>
+
+      <main className="App-main">
+        {mainContent}
+      </main>
+    </div>
+  );
 }
 
 export default App;

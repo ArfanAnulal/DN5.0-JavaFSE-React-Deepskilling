@@ -15,18 +15,10 @@ public class SpringLearnApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(SpringLearnApplication.class);
 
     public static void main(String[] args) {
-        String runMode = System.getProperty("runMode", "web");
-        
-        if ("xml-test".equalsIgnoreCase(runMode)) {
-            LOGGER.info("START Xml Test Mode");
-            displayDate();
-            displayCountry();
-            displayCountries();
-            LOGGER.info("END Xml Test Mode");
-            System.exit(0);
-        } else {
-            SpringApplication.run(SpringLearnApplication.class, args);
-        }
+        LOGGER.info("START SpringLearnApplication main execution");
+        displayCountry();
+        SpringApplication.run(SpringLearnApplication.class, args);
+        LOGGER.info("END SpringLearnApplication main execution");
     }
 
     public static void displayDate() {
@@ -47,9 +39,7 @@ public class SpringLearnApplication {
         LOGGER.info("START displayCountry");
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("country.xml")) {
             Country country = context.getBean("country", Country.class);
-            Country anotherCountry = context.getBean("country", Country.class);
-            LOGGER.debug("Country 1: {}", country);
-            LOGGER.debug("Country 2: {}", anotherCountry);
+            LOGGER.debug("Country : {}", country.toString());
         }
         LOGGER.info("END displayCountry");
     }

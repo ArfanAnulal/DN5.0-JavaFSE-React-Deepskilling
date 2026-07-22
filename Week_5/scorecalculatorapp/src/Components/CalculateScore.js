@@ -1,19 +1,27 @@
 import React from 'react';
 import '../Stylesheets/mystyle.css';
 
-function CalculateScore(props) {
-    const { Name, School, Total, goal } = props;
-    const average = Total / 4;
-    return (
-        <div className="calculate-score">
-            <h2>Student Score Card</h2>
-            <p><strong>Name:</strong> {Name}</p>
-            <p><strong>School:</strong> {School}</p>
-            <p><strong>Total:</strong> {Total}</p>
-            <p><strong>Goal:</strong> {goal}</p>
-            <p><strong>Average:</strong> {average.toFixed(2)}</p>
-        </div>
-    );
-}
+const calcAverage = (totalMarks, subjectsCount = 4) => {
+  return (totalMarks / subjectsCount).toFixed(2);
+};
+
+const CalculateScore = ({ Name, School, Total, goal }) => {
+  const scoreAverage = calcAverage(Total);
+
+  return (
+    <div className="score-card-container">
+      <h2 className="score-header">Student Performance Report</h2>
+      <div className="score-details">
+        <p><span className="detail-label">Name:</span> <span>{Name}</span></p>
+        <p><span className="detail-label">School:</span> <span>{School}</span></p>
+        <p><span className="detail-label">Total:</span> <span>{Total}</span></p>
+        <p><span className="detail-label">Goal:</span> <span>{goal}</span></p>
+        <p className="highlight-average">
+          <span className="detail-label">Average:</span> <span>{scoreAverage}</span>
+        </p>
+      </div>
+    </div>
+  );
+};
 
 export default CalculateScore;

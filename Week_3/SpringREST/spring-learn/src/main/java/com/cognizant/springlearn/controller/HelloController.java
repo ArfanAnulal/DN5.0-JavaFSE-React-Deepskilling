@@ -12,10 +12,10 @@ public class HelloController {
 
     @GetMapping("/hello")
     public String sayHello() {
-        LOGGER.info("START sayHello");
-        String response = "Hello World!!";
-        LOGGER.debug("Response: {}", response);
-        LOGGER.info("END sayHello");
-        return response;
+        LOGGER.info("START sayHello execution");
+        String greetingMessage = "Hello World!!";
+        LOGGER.debug("Greeting Response: {}", greetingMessage);
+        LOGGER.info("END sayHello execution");
+        return greetingMessage;
     }
 }

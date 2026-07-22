@@ -2,40 +2,62 @@ import React, { Component } from 'react';
 import Post from './Post';
 
 class Posts extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            posts: [],
-            hasError: false
-        };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: [],
+      hasError: false,
+      errorMessage: ''
+    };
+  }
 
-    componentDidMount() {
-        const samplePosts = [
-            { id: 1, title: 'First Blog Post', content: 'Welcome to my blog!', author: 'Admin' },
-            { id: 2, title: 'React Lifecycle', content: 'Learning componentDidMount and componentDidCatch.', author: 'Admin' }
-        ];
-        this.setState({ posts: samplePosts });
-    }
-
-    componentDidCatch(error, info) {
-        this.setState({ hasError: true });
-        console.error('Error caught:', error, info);
-    }
-
-    render() {
-        if (this.state.hasError) {
-            return <h1>Something went wrong.</h1>;
+  loadPosts = () => {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to load posts from API.');
         }
-        return (
-            <div className="posts">
-                <h1>Blog Posts</h1>
-                {this.state.posts.map(post => (
-                    <Post key={post.id} title={post.title} content={post.content} author={post.author} />
-                ))}
-            </div>
-        );
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ posts: data.slice(0, 10) });
+      })
+      .catch(error => {
+        this.componentDidCatch(error, 'loadPosts Fetch Error');
+      });
+  };
+
+  componentDidMount() {
+    this.loadPosts();
+  }
+
+  componentDidCatch(error, errorInfo) {
+    this.setState({ hasError: true, errorMessage: error.toString() });
+    alert('Error caught in Posts component: ' + error.toString());
+    console.error('componentDidCatch:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="error-banner">
+          <h2>An error occurred while loading posts.</h2>
+          <p>{this.state.errorMessage}</p>
+        </div>
+      );
     }
+
+    return (
+      <section className="posts-wrapper">
+        <h1 className="main-heading">Blog Posts Directory</h1>
+        <div className="posts-grid">
+          {this.state.posts.map(item => (
+            <Post key={item.id} id={item.id} title={item.title} body={item.body} />
+          ))}
+        </div>
+      </section>
+    );
+  }
 }
 
 export default Posts;

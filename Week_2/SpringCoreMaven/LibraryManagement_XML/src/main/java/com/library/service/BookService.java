@@ -6,26 +6,27 @@ import java.util.List;
 public class BookService {
     private BookRepository bookRepository;
 
-    // Constructor injection support (Exercise 7)
+    // Default constructor for Spring XML bean instantiation
     public BookService() {
     }
 
+    // Constructor injection option
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
-    // Setter injection support (Exercise 2, 5, 7)
+    // Setter method for Spring Dependency Injection (Exercise 2)
     public void setBookRepository(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
     public void addBook(String title) {
-        System.out.println("[BookService]: Business check for adding book '" + title + "'");
-        bookRepository.save(title);
+        System.out.println("[BookService] Processing request to add book: '" + title + "'");
+        bookRepository.saveBook(title);
     }
 
     public List<String> listBooks() {
-        System.out.println("[BookService]: Retrieving complete library list");
-        return bookRepository.findAll();
+        System.out.println("[BookService] Retrieving full book catalog from repository...");
+        return bookRepository.findAllBooks();
     }
 }

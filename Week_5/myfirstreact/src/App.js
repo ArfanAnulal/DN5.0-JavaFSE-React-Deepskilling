@@ -1,11 +1,14 @@
+import React from 'react';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>welcome to the first session of React</h1>
-    </div>
+    <main className="App">
+      <header className="App-header">
+        <h1>welcome to the first session of React</h1>
+      </header>
+    </main>
   );
-}
+};
 
 export default App;
