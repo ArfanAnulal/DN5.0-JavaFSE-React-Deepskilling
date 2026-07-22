@@ -1,0 +1,86 @@
+===================================================================
+GIT MERGE CONFLICT RESOLUTION HANDS-ON LAB EXECUTION LOG
+Project: GitConflictResolutionDemo
+===================================================================
+
+[STEP 1: INITIALIZE REPOSITORY & CLEAN STATE VERIFICATION]
+$ cd C:/Users/arfan/Documents/Cognizant/DN5.0-JavaFSE-React-Deepskilling/Week_6/GitConflictResolutionDemo
+$ git init
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+[STEP 2: CREATE FEATURE BRANCH & COMMIT MODIFICATION]
+$ git checkout -b GitWork
+$ echo "<greeting>
+    <message>Hello from GitWork branch implementation</message>
+    <author>Developer Work Branch</author>
+</greeting>" > hello.xml
+
+$ git add hello.xml
+$ git commit -m "Add hello.xml on GitWork branch"
+
+[STEP 3: SWITCH TO MASTER & COMMIT CONFLICTING MODIFICATION]
+$ git checkout master
+$ echo "<greeting>
+    <message>Hello from Master trunk implementation</message>
+    <author>Master Main Branch</author>
+</greeting>" > hello.xml
+
+$ git add hello.xml
+$ git commit -m "Add conflicting hello.xml on master branch"
+
+[STEP 4: LOG INSPECTION BEFORE MERGE]
+$ git log --oneline --graph --decorate --all
+* c52b461 (GitWork) Add hello.xml on GitWork branch
+| * 2e5e29b (HEAD -> master) Add conflicting hello.xml on master branch
+|/  
+* 76a7ddb Initial commit on master branch
+
+[STEP 5: TRIGGER MERGE CONFLICT]
+$ git merge GitWork
+Auto-merging hello.xml
+CONFLICT (add/add): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+
+[STEP 6: CONFLICT MARKERS IN HELLO.XML]
+<greeting>
+<<<<<<< HEAD
+    <message>Hello from Master trunk implementation</message>
+    <author>Master Main Branch</author>
+=======
+    <message>Hello from GitWork branch implementation</message>
+    <author>Developer Work Branch</author>
+>>>>>>> GitWork
+</greeting>
+
+[STEP 7: CONFLICT RESOLUTION & COMMITTING]
+Resolved file content written to hello.xml:
+<greeting>
+    <message>Hello from Master trunk and GitWork branch integrated implementation</message>
+    <author>Master & GitWork Unified</author>
+</greeting>
+
+$ git add hello.xml
+$ git commit -m "Resolved merge conflict in hello.xml between master and GitWork"
+
+[STEP 8: ADD .GITIGNORE & BRANCH CLEANUP]
+$ echo "*.orig" > .gitignore
+$ git add .gitignore
+$ git commit -m "Add *.orig backup pattern to .gitignore"
+$ git branch -d GitWork
+Deleted branch GitWork (was c52b461).
+
+[STEP 9: FINAL COMMIT GRAPH LOG]
+$ git log --oneline --graph --decorate
+* ca3c0ea (HEAD -> master) Add *.orig backup pattern to .gitignore
+*   03325d4 Resolved merge conflict in hello.xml between master and GitWork
+|\  
+| * c52b461 Add hello.xml on GitWork branch
+* | 2e5e29b Add conflicting hello.xml on master branch
+|/  
+* 76a7ddb Initial commit on master branch
+
+$ git status
+On branch master
+nothing to commit, working tree clean

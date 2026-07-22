@@ -1,0 +1,2 @@
+New feature implemented in GitNewBranch
+Enhancement details for feature release 1.1.0

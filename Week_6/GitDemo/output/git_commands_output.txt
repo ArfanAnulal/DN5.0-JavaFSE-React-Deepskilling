@@ -1,0 +1,70 @@
+===================================================================
+GIT VERSION CONTROL HANDS-ON LAB EXECUTION LOG
+Project: GitDemo
+===================================================================
+
+[STEP 1: SETUP & CONFIGURATION VERIFICATION]
+$ git version
+git version 2.49.0.windows.1
+
+$ git config --global user.name "Arfan Anulal"
+$ git config --global user.email "arfan.anulal@cognizant.com"
+
+$ git config --list --show-origin
+file:C:/Users/arfan/.gitconfig  user.name=Arfan Anulal
+file:C:/Users/arfan/.gitconfig  user.email=arfan.anulal@cognizant.com
+file:C:/Users/arfan/.gitconfig  core.editor=notepad.exe
+
+[STEP 2: DEFAULT EDITOR INTEGRATION]
+$ git config --global core.editor "notepad.exe"
+$ git config --global -e
+(Opens Notepad editor displaying ~/.gitconfig settings)
+
+[STEP 3: LOCAL REPOSITORY CREATION & FILE TRACKING]
+$ cd C:/Users/arfan/Documents/Cognizant/DN5.0-JavaFSE-React-Deepskilling/Week_6/GitDemo
+$ git init
+Initialized empty Git repository in C:/Users/arfan/Documents/Cognizant/DN5.0-JavaFSE-React-Deepskilling/Week_6/GitDemo/.git/
+
+$ ls -la
+drwxr-xr-x 1 arfan 197121 0 Jul 22 11:47 .git
+-rw-r--r-- 1 arfan 197121 192 Jul 22 11:47 welcome.txt
+
+$ cat welcome.txt
+Welcome to the GitDemo Repository!
+This repository demonstrates essential Git version control workflows,
+including repository initialization, configuration, tracking changes,
+committing, and remote repository integration.
+
+$ git status
+On branch master
+No commits yet
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	welcome.txt
+
+$ git add welcome.txt
+$ git status
+On branch master
+No commits yet
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   welcome.txt
+
+$ git commit -m "Initial commit: Add welcome.txt to GitDemo repository"
+[master (root-commit) edbef35] Initial commit: Add welcome.txt to GitDemo repository
+ 1 file changed, 4 insertions(+)
+ create mode 100644 welcome.txt
+
+$ git log --oneline --stat
+edbef35 (HEAD -> master) Initial commit: Add welcome.txt to GitDemo repository
+ welcome.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+[STEP 4: REMOTE REPOSITORY INTEGRATION (GITLAB / GITHUB)]
+$ git remote add origin https://gitlab.com/arfan.anulal/GitDemo.git
+$ git pull origin master --allow-unrelated-histories
+Already up to date.
+
+$ git push -u origin master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Everything up-to-date

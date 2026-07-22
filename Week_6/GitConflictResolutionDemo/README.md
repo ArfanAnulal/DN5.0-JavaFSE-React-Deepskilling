@@ -1,0 +1,1 @@
+# Git Conflict Resolution Demo

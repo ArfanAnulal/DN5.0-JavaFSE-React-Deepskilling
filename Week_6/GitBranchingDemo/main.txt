@@ -1,0 +1,2 @@
+Master Branch Base Application Content
+Version: 1.0.0

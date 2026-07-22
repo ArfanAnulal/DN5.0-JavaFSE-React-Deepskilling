@@ -1,0 +1,61 @@
+===================================================================
+GIT IGNORE HANDS-ON LAB EXECUTION LOG
+Project: GitIgnoreDemo
+===================================================================
+
+[STEP 1: CREATING WORKING DIRECTORY & UNWANTED FILES]
+$ cd C:/Users/arfan/Documents/Cognizant/DN5.0-JavaFSE-React-Deepskilling/Week_6/GitIgnoreDemo
+$ git init
+Initialized empty Git repository in C:/Users/arfan/Documents/Cognizant/DN5.0-JavaFSE-React-Deepskilling/Week_6/GitIgnoreDemo/.git/
+
+Files created:
+- app.js (Tracked source code)
+- app.log (Unwanted log file)
+- logs/server.log (Unwanted log directory file)
+
+[STEP 2: CREATING & CONFIGURING .gitignore]
+$ cat .gitignore
+# Ignore all files with .log extension
+*.log
+
+# Ignore log directories
+logs/
+log/
+
+[STEP 3: VERIFYING GIT STATUS FOR IGNORED FILES]
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+	app.js
+
+(Notice: app.log and logs/ directory are NOT listed as untracked files!)
+
+[STEP 4: STAGING AND COMMITTING]
+$ git add .
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+	new file:   .gitignore
+	new file:   app.js
+
+$ git commit -m "Configure .gitignore to exclude .log files and logs directory"
+[master (root-commit) b6b40a4] Configure .gitignore to exclude .log files and logs directory
+ 2 files changed, 11 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 app.js
+
+[STEP 5: VERIFYING COMMIT HISTORY]
+$ git log --oneline --stat
+b6b40a4 (HEAD -> master) Configure .gitignore to exclude .log files and logs directory
+ .gitignore | 6 ++++++
+ app.js     | 5 +++++
+ 2 files changed, 11 insertions(+)

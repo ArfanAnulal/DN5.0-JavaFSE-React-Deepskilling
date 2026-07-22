@@ -1,0 +1,4 @@
+Welcome to the GitDemo Repository!
+This repository demonstrates essential Git version control workflows,
+including repository initialization, configuration, tracking changes,
+committing, and remote repository integration.

@@ -1,0 +1,38 @@
+===================================================================
+GIT REMOTE CLEANUP AND PUSH HANDS-ON LAB EXECUTION LOG
+Project: GitRemoteCleanupDemo
+===================================================================
+
+[STEP 1: VERIFY MASTER CLEAN WORKING TREE STATE]
+$ cd C:/Users/arfan/Documents/Cognizant/DN5.0-JavaFSE-React-Deepskilling/Week_6/GitRemoteCleanupDemo
+$ git init
+Initialized empty Git repository in C:/Users/arfan/Documents/Cognizant/DN5.0-JavaFSE-React-Deepskilling/Week_6/GitRemoteCleanupDemo/.git/
+
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+[STEP 2: LIST ALL AVAILABLE LOCAL AND REMOTE BRANCHES]
+$ git branch -a
+* master
+
+[STEP 3: PULL REMOTE REPOSITORY CHANGES TO MASTER]
+$ git remote add origin https://gitlab.com/arfan.anulal/GitRemoteCleanupDemo.git
+$ git pull origin master --allow-unrelated-histories
+From https://gitlab.com/arfan.anulal/GitRemoteCleanupDemo
+ * branch            master     -> FETCH_HEAD
+Already up to date.
+
+[STEP 4: PUSH PENDING CLEANED COMMITS BACK TO REMOTE REPOSITORY]
+$ git push -u origin master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+Everything up-to-date
+
+[STEP 5: OBSERVE REFLECTED CHANGES AND COMMIT LOGS]
+$ git log --oneline --graph --decorate
+* 337c4e5 (HEAD -> master, origin/master) Initial commit of cleaned master workspace
+
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+nothing to commit, working tree clean

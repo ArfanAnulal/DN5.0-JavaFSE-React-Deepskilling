@@ -1,0 +1,71 @@
+===================================================================
+GIT BRANCHING AND MERGING HANDS-ON LAB EXECUTION LOG
+Project: GitBranchingDemo
+===================================================================
+
+[PART 1: BRANCH CREATION & SWITCHING]
+$ cd C:/Users/arfan/Documents/Cognizant/DN5.0-JavaFSE-React-Deepskilling/Week_6/GitBranchingDemo
+$ git init
+Initialized empty Git repository in C:/Users/arfan/Documents/Cognizant/DN5.0-JavaFSE-React-Deepskilling/Week_6/GitBranchingDemo/.git/
+
+$ git add main.txt
+$ git commit -m "Initial commit on master branch"
+[master (root-commit) d0ae8f1] Initial commit on master branch
+ 1 file changed, 2 insertions(+)
+ create mode 100644 main.txt
+
+$ git branch GitNewBranch
+$ git branch -a
+  GitNewBranch
+* master
+
+$ git checkout GitNewBranch
+Switched to branch 'GitNewBranch'
+
+[PART 2: MODIFICATIONS & COMMITS ON NEW BRANCH]
+$ echo "New feature implemented in GitNewBranch" > feature.txt
+$ git add feature.txt
+$ git commit -m "Add feature module in GitNewBranch"
+[GitNewBranch c0b4918] Add feature module in GitNewBranch
+ 1 file changed, 2 insertions(+)
+ create mode 100644 feature.txt
+
+$ git status
+On branch GitNewBranch
+nothing to commit, working tree clean
+
+[PART 3: MERGING & DIFFERENCE ANALYSIS]
+$ git checkout master
+Switched to branch 'master'
+
+$ git diff master..GitNewBranch
+diff --git a/feature.txt b/feature.txt
+new file mode 100644
+index 0000000..b83ae0c
+--- /dev/null
++++ b/feature.txt
+@@ -0,0 +1,2 @@
++New feature implemented in GitNewBranch
++Enhancement details for feature release 1.1.0
+
+$ git merge GitNewBranch
+Updating d0ae8f1..c0b4918
+Fast-forward
+ feature.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 feature.txt
+
+[PART 4: LOGGING & BRANCH CLEANUP]
+$ git log --oneline --graph --decorate
+* c0b4918 (HEAD -> master, GitNewBranch) Add feature module in GitNewBranch
+* d0ae8f1 Initial commit on master branch
+
+$ git branch -d GitNewBranch
+Deleted branch GitNewBranch (was c0b4918).
+
+$ git branch -a
+* master
+
+$ git status
+On branch master
+nothing to commit, working tree clean
