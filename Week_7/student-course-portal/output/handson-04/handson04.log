@@ -1,0 +1,40 @@
+================================================================================
+HANDS-ON 4 EXECUTION LOG
+Project: student-course-portal
+Topic: Template-Driven Forms & Validation
+Timestamp: 2026-07-22 12:20:00
+================================================================================
+
+1. COMPONENT & ROUTE CREATION
+- Created EnrollmentFormComponent (npx ng g c pages/enrollment-form)
+- Registered route path '/enroll' in AppRoutingModule
+- Added 'Enrollment' navigation item in HeaderComponent template
+
+2. TEMPLATE-DRIVEN FORM IMPLEMENTATION
+- Used <form #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)">
+- Form Controls bound with [(ngModel)] and name attributes:
+  * studentName (Text, required, minlength="3")
+  * studentEmail (Email, required, email)
+  * courseId (Number, required)
+  * preferredSemester (Select: Odd / Even)
+  * agreeToTerms (Checkbox, required)
+
+3. VALIDATION & ERROR MESSAGES
+- Local template variable references (#nameCtrl="ngModel", #emailCtrl="ngModel", etc.)
+- Conditional error rendering with *ngIf based on .touched and .errors properties
+- Disabled Submit button state: [disabled]="enrollForm.invalid"
+- Applied Angular form state CSS classes:
+  * .form-control.ng-invalid.ng-touched (Red border & background)
+  * .form-control.ng-valid.ng-touched (Green border)
+
+4. SUBMISSION & RESET HANDLING
+- onSubmit(form): Logs form.value and form.valid to console, sets submitted = true
+- onReset(form): Executes form.resetForm() to clear inputs and reset pristine/untouched states
+
+5. BUILD VERIFICATION
+Command: npx ng build
+Output:
+  Initial total: 349.73 kB
+  Application bundle generation complete. [3.916 seconds]
+  Result: 0 errors, build SUCCESSFUL.
+================================================================================

@@ -1,12 +1,23 @@
-# Java target directory
+# Node.js & Angular / React dependencies and builds
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+build/
+**/build/
+.angular/
+**/.angular/
+coverage/
+**/coverage/
+
+# Java & Maven target directories
 target/
+**/target/
 *.class
+*.jar
+.mvn/
 
-# Log files
-*.log
-app.log
-
-# IDE files
+# IDE and Editor files
 .idea/
 *.iml
 .project
@@ -14,9 +25,6 @@ app.log
 .settings/
 .vscode/
 
-# Local/Workspace specific docs folder exclusion
+# Local/Workspace specific folder exclusions
 docs/
-
-# Local/Workspace specific backup folder exclusion
 backup_temp/
-

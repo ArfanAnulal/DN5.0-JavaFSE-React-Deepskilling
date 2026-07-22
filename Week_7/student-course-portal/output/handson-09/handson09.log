@@ -1,0 +1,43 @@
+================================================================================
+HANDS-ON 9 EXECUTION LOG
+Project: student-course-portal
+Topic: State Management — NgRx Store, Actions, Reducers, Effects & Selectors
+Timestamp: 2026-07-22 12:33:00
+================================================================================
+
+1. NGRX DEPENDENCIES & STORE CONFIGURATION
+- Installed @ngrx packages (@ngrx/store, @ngrx/effects, @ngrx/entity, @ngrx/store-devtools)
+- Registered StoreModule.forRoot({ course: courseReducer, enrollment: enrollmentReducer }) in AppModule
+- Configured EffectsModule.forRoot([CourseEffects])
+- Enabled Redux DevTools: StoreDevtoolsModule.instrument({ maxAge: 25 })
+
+2. COURSE STATE MANAGEMENT (src/app/store/course/)
+- Actions: loadCourses, loadCoursesSuccess, loadCoursesFailure with [Course] prefix convention
+- Reducer: Pure function handling immutable CourseState transitions
+- Selectors: Memoized state queries (selectCourseState, selectAllCourses, selectCoursesLoading, selectCoursesError)
+- Effects: CourseEffects executes HTTP API request on loadCourses action and dispatches loadCoursesSuccess/Failure
+
+3. ENROLLMENT STATE & CROSS-SLICE SELECTORS (src/app/store/enrollment/)
+- Actions: enrollInCourse, unenrollFromCourse, setEnrolledCourses
+- Reducer: Manages enrolledCourseIds array state
+- Cross-slice Selector: selectEnrolledCourses combines selectAllCourses and selectEnrolledIds to return joined data stream
+
+4. COMPONENT INTEGRATION
+- CourseListComponent:
+  * Dispatches loadCourses action in ngOnInit
+  * Selects courses$, isLoading$, and error$ from NgRx store
+  * Renders using (courses$ | async) pipe
+- CourseCardComponent:
+  * Selects selectEnrolledIds to derive isEnrolled$
+  * Dispatches enrollInCourse and unenrollFromCourse actions on button click
+- StudentProfileComponent:
+  * Selects cross-slice selectEnrolledCourses selector
+
+5. BUILD VERIFICATION
+Command: npx ng build
+Output:
+  Initial total: 438.70 kB
+  Lazy chunk files: enrollment-module (18.22 kB)
+  Application bundle generation complete. [4.273 seconds]
+  Result: 0 errors, build SUCCESSFUL.
+================================================================================

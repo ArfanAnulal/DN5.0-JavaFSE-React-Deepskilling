@@ -1,0 +1,38 @@
+================================================================================
+HANDS-ON 6 EXECUTION LOG
+Project: student-course-portal
+Topic: Services & Dependency Injection
+Timestamp: 2026-07-22 12:25:00
+================================================================================
+
+1. MODEL & SERVICE CREATION
+- Course Model: Defined Course interface in src/app/models/course.model.ts
+- CourseService (npx ng g s services/course):
+  * Root provided singleton (@Injectable({ providedIn: 'root' }))
+  * Manages courses array with getCourses(), getCourseById(id), addCourse(course)
+- EnrollmentService (npx ng g s services/enrollment):
+  * Demonstrates Service-to-Service Dependency Injection
+  * Injects CourseService into constructor to resolve course IDs to full Course objects
+  * Methods: enroll(id), unenroll(id), isEnrolled(id), getEnrolledCourses()
+
+2. SINGLETON SERVICE DEMONSTRATION
+- CourseListComponent & HomeComponent both inject root CourseService
+- Created CourseSummaryWidgetComponent (npx ng g c components/course-summary-widget)
+  * Injects CourseService to read live courses count
+  * Renders summary widget confirming shared state across components
+
+3. HIERARCHICAL DI & COMPONENT-LEVEL PROVIDERS
+- Created NotificationService & NotificationComponent (npx ng g c components/notification)
+- Provided NotificationService at component level using:
+  providers: [NotificationService] in @Component decorator
+- Included code comments explaining how component-level providers instantiate a new, 
+  isolated service instance scoped specifically to that component instance tree.
+- StudentProfileComponent injects EnrollmentService to show live enrolled course list
+
+4. BUILD VERIFICATION
+Command: npx ng build
+Output:
+  Initial total: 379.73 kB
+  Application bundle generation complete. [4.131 seconds]
+  Result: 0 errors, build SUCCESSFUL.
+================================================================================

@@ -1,0 +1,39 @@
+================================================================================
+HANDS-ON 3 EXECUTION LOG
+Project: student-course-portal
+Topic: Directives & Pipes — Built-in and Custom
+Timestamp: 2026-07-22 12:19:00
+================================================================================
+
+1. DIRECTIVE & PIPE CREATION
+- HighlightDirective: Created using npx ng g d directives/highlight
+  * Uses @HostListener('mouseenter') and @HostListener('mouseleave')
+  * Uses Renderer2 to apply background color dynamically
+  * Configurable via @Input() appHighlight (defaulting to yellow/#e0f2fe)
+- CreditLabelPipe: Created using npx ng g p pipes/credit-label
+  * Implements PipeTransform interface
+  * Transforms 1 -> '1 Credit', 2+ -> 'N Credits', null/0 -> 'No Credits'
+
+2. STRUCTURAL DIRECTIVES IMPLEMENTED
+- *ngIf: Displays loading spinner message for 1.5s simulated delay in CourseListComponent
+- *ngIf with else (#noCourses): Displays fallback template when courses list is empty
+- *ngFor with trackBy: Uses trackByCourseId(index, course) to optimize DOM rendering
+  * Performance explanation included in course-list.ts comments
+- *ngSwitch: Renders grade status badge in CourseCardComponent:
+  * 'passed' -> Green Passed badge
+  * 'failed' -> Red Failed badge
+  * 'pending' -> Grey Pending badge
+
+3. ATTRIBUTE DIRECTIVES IMPLEMENTED
+- [ngClass]="cardClasses": Uses TypeScript getter to apply 'card--enrolled', 'card--full', and 'expanded'
+  * Code comment added explaining how getters keep template clean
+- [ngStyle]="cardBorderStyle": Sets dynamic left border color based on gradeStatus
+- Dynamic expand/collapse details toggle button using [ngClass]
+
+4. BUILD VERIFICATION
+Command: npx ng build
+Output:
+  Initial total: 326.57 kB
+  Application bundle generation complete. [3.157 seconds]
+  Result: 0 errors, build SUCCESSFUL.
+================================================================================

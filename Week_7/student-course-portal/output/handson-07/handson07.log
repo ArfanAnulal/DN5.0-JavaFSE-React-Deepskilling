@@ -1,0 +1,49 @@
+================================================================================
+HANDS-ON 7 EXECUTION LOG
+Project: student-course-portal
+Topic: Angular Routing — Guards, Lazy Loading & Route Data
+Timestamp: 2026-07-22 12:28:00
+================================================================================
+
+1. ROUTE CONFIGURATION & NESTED ROUTES
+- Configured routes in AppRoutingModule:
+  * '/' -> HomeComponent
+  * '/courses' -> CoursesLayoutComponent (Parent layout with <router-outlet>)
+    - '' -> CourseListComponent
+    - ':id' -> CourseDetailComponent (readsActivatedRoute snapshot paramMap)
+  * '/profile' -> StudentProfileComponent
+  * '**' -> NotFoundComponent (Wildcard 404 handler)
+- Added programmatic navigation in CourseCardComponent:
+  router.navigate(['courses', course.id])
+
+2. QUERY PARAMETERS
+- Updated CourseListComponent to bind search input to URL query parameters
+- ActivatedRoute.snapshot.queryParamMap.get('search') reads parameter on load
+- router.navigate(['/courses'], { queryParams: { search: term } }) updates URL dynamically
+
+3. LAZY-LOADED FEATURE MODULE
+- Created EnrollmentModule (npx ng g m features/enrollment --routing)
+- Configured lazy loading route in AppRoutingModule:
+  path: 'enroll', loadChildren: () => import('./features/enrollment/enrollment-module').then(m => m.EnrollmentModule)
+- Build Output Verification:
+  Lazy chunk generated: chunk-DKZYWZVF.js (enrollment-module, 18.20 kB)
+  Confirms modular code-splitting and on-demand chunk loading.
+
+4. ROUTE GUARDS IMPLEMENTED
+- AuthGuard (CanActivate):
+  * Created src/app/guards/auth.guard.ts
+  * Checks AuthService.isLoggedIn()
+  * Applied to '/profile' route. Redirects to '/' if unauthenticated.
+- UnsavedChangesGuard (CanDeactivate):
+  * Created src/app/guards/unsaved-changes.guard.ts
+  * Checks if ReactiveEnrollmentForm form is dirty
+  * Displays window.confirm() dialog to prevent accidental navigation data loss
+
+5. BUILD VERIFICATION
+Command: npx ng build
+Output:
+  Initial total: 370.96 kB
+  Lazy chunk files: enrollment-module (18.20 kB)
+  Application bundle generation complete. [3.532 seconds]
+  Result: 0 errors, build SUCCESSFUL.
+================================================================================

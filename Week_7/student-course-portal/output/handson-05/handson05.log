@@ -1,0 +1,50 @@
+================================================================================
+HANDS-ON 5 EXECUTION LOG
+Project: student-course-portal
+Topic: Reactive Forms — FormBuilder, FormGroup, FormArray & Custom Validators
+Timestamp: 2026-07-22 12:21:20
+================================================================================
+
+1. MODULE & ROUTE CONFIGURATION
+- Imported ReactiveFormsModule in AppModule
+- Created ReactiveEnrollmentFormComponent (npx ng g c pages/reactive-enrollment-form)
+- Registered route '/enroll-reactive' in AppRoutingModule
+- Updated HeaderComponent template with 'Reactive Form' nav item
+
+2. FORM MODEL WITH FORMBUILDER
+- Injected FormBuilder in constructor
+- Configured FormGroup with controls:
+  * studentName: [Validators.required, Validators.minLength(3)]
+  * studentEmail: [Validators.required, Validators.email], [simulateEmailCheck]
+  * courseId: [Validators.required, noCourseCode]
+  * preferredSemester: 'Odd'
+  * agreeToTerms: [false, Validators.requiredTrue]
+  * additionalCourses: FormArray
+
+3. CUSTOM VALIDATORS IMPLEMENTED
+- Synchronous Validator (noCourseCode):
+  * Checks if course code starts with disallowed prefix 'XX'
+  * Returns { noCourseCode: true } if matched, else null
+- Asynchronous Validator (simulateEmailCheck):
+  * Simulates async server check with 800ms delay returning Promise
+  * Returns { emailTaken: true } if email string contains 'test@'
+
+4. DYNAMIC FORMARRAY & TYPED GETTER
+- Implemented getter get additionalCourses(): FormArray
+  * Code comment included explaining benefits over template casting
+- Added addAdditionalCourse() and removeAdditionalCourse(i) handlers
+- Dynamically renders repeating input controls in HTML template using *ngFor
+
+5. SUBMISSION & GETRAWVALUE DEMO
+- onSubmit() handler logs:
+  * enrollForm.value (excludes disabled controls)
+  * enrollForm.getRawValue() (includes all controls)
+  * TS comment explaining the key difference between value and getRawValue()
+
+6. BUILD VERIFICATION
+Command: npx ng build
+Output:
+  Initial total: 371.46 kB
+  Application bundle generation complete. [3.386 seconds]
+  Result: 0 errors, build SUCCESSFUL.
+================================================================================

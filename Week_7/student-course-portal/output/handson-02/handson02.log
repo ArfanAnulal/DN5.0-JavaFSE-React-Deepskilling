@@ -1,0 +1,43 @@
+================================================================================
+HANDS-ON 2 EXECUTION LOG
+Project: student-course-portal
+Topic: Data Binding, Lifecycle Hooks & Component Communication
+Timestamp: 2026-07-22 12:17:45
+================================================================================
+
+1. COMPONENT & MODULE UPDATE
+- Created CourseCardComponent (npx ng g c components/course-card)
+- Added FormsModule to AppModule imports array to enable [(ngModel)]
+
+2. BINDINGS IMPLEMENTED (HomeComponent)
+- String Interpolation: {{ portalName }}
+- Property Binding: [disabled]="!isPortalActive"
+- Event Binding: (click)="onEnrollClick()"
+- Two-Way Binding: [(ngModel)]="searchTerm" with live search preview
+- Documented key difference between [property] (one-way) and [(ngModel)] (two-way) in home.ts comments
+
+3. LIFECYCLE HOOKS IMPLEMENTED
+- HomeComponent:
+  * ngOnInit(): Logs 'HomeComponent initialised — courses loaded'
+  * ngOnDestroy(): Logs 'HomeComponent destroyed'
+- CourseCardComponent:
+  * ngOnChanges(changes): Logs previousValue, currentValue, and isFirstChange for course input
+
+4. PARENT-CHILD COMMUNICATION
+- CourseCardComponent:
+  * @Input() course: Object with id, name, code, credits
+  * @Output() enrollRequested = new EventEmitter<number>()
+  * Emits course.id on button click
+- CourseListComponent:
+  * Manages list of 5 course objects
+  * Uses *ngFor to render <app-course-card> instances
+  * Binds (enrollRequested)="onEnroll($event)"
+  * Updates selectedCourseId and logs 'Enrolling in course: X'
+
+5. BUILD VERIFICATION
+Command: npx ng build
+Output:
+  Initial total: 309.92 kB
+  Application bundle generation complete. [4.340 seconds]
+  Result: 0 errors, build SUCCESSFUL.
+================================================================================

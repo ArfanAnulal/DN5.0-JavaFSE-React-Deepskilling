@@ -1,0 +1,36 @@
+================================================================================
+HANDS-ON 10 EXECUTION LOG
+Project: student-course-portal
+Topic: Unit Testing Angular Applications — Jasmine, Karma & TestBed
+Timestamp: 2026-07-22 12:41:30
+================================================================================
+
+1. COMPONENT TESTING (CourseCardComponent)
+- Configured TestBed with CourseCard, CreditLabelPipe, and MockStore provider
+- Test 1: Creation assertion (expect(component).toBeTruthy())
+- Test 2: @Input rendering test (verifies .course-name and .course-code DOM elements)
+- Test 3: @Output event emitting test (spyOn(component.enrollRequested, 'emit') on button click)
+- Test 4: ngOnChanges lifecycle hook test (spyOn(console, 'log'))
+- Test 5: CreditLabelPipe custom pipe template formatting assertion
+
+2. SERVICE TESTING (CourseService)
+- Configured TestBed with HttpClientTestingModule and HttpTestingController
+- Test 1: getCourses() success test (GET request to http://localhost:3000/courses)
+- Test 2: Error handling test (flushes 500 error across 3 retry attempts)
+- Verified no open HTTP requests using httpMock.verify()
+
+3. NGRX STORE-CONNECTED COMPONENT TESTING (CourseListComponent)
+- Configured TestBed with provideMockStore({ initialState })
+- Test 1: Rendered course cards matching initial NgRx store state
+- Test 2: Simulated loading state with store.setState() and asserted .spinner DOM element presence
+
+4. KARMA/JASMINE TEST EXECUTION RESULT
+Command: npx ng test --watch=false --browsers=ChromeHeadless --code-coverage
+Output:
+  TOTAL: 27 SUCCESS (0 FAILED)
+  Statements   : 71.36% ( 152/213 )
+  Branches     : 40.47% ( 17/42 )
+  Functions    : 56.81% ( 50/88 )
+  Lines        : 70.35% ( 140/199 )
+  Result: ALL 27 TESTS PASSED.
+================================================================================

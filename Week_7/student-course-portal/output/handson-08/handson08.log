@@ -1,0 +1,45 @@
+================================================================================
+HANDS-ON 8 EXECUTION LOG
+Project: student-course-portal
+Topic: HTTP Client — API Integration, Observables & Interceptors
+Timestamp: 2026-07-22 12:31:00
+================================================================================
+
+1. MOCK BACKEND SETUP
+- Installed json-server devDependency (npm install --save-dev json-server@0.17.4)
+- Created db.json in project root with courses, students, and enrollments endpoints
+
+2. HTTPCLIENT REFACTORING (CourseService)
+- Imported HttpClientModule in AppModule
+- Refactored CourseService to execute HTTP requests to http://localhost:3000/courses:
+  * getCourses(): GET Observable<Course[]>
+  * getCourseById(id): GET Observable<Course>
+  * createCourse(course): POST Observable<Course>
+  * updateCourse(course): PUT Observable<Course>
+  * deleteCourse(id): DELETE Observable<void>
+
+3. RXJS OPERATORS & ERROR HANDLING
+- retry(2): Automatically retries failed HTTP requests twice
+- map: Filters and transforms API course data streams
+- tap: Executes side-effect logging without mutating stream data
+  * Comment added explaining why tap is preferred over map for logging
+- catchError: Handles client and server errors gracefully with user-friendly throwError
+- switchMap: Demonstrated in getCourseStudents(courseId$)
+  * Comment added explaining how switchMap cancels previous inner Observables to prevent race conditions
+
+4. HTTP INTERCEPTORS (Registered via HTTP_INTERCEPTORS multi-provider)
+- AuthInterceptor (src/app/interceptors/auth.interceptor.ts):
+  * Clones HttpRequest and adds 'Authorization: Bearer mocktoken-12345' header
+- ErrorHandlerInterceptor (src/app/interceptors/error-handler.interceptor.ts):
+  * Catches HTTP errors globally (status 401 redirect, status 500 alert)
+- LoadingInterceptor (src/app/interceptors/loading.interceptor.ts):
+  * Toggles LoadingService BehaviorSubject (show on request start, hide in finalize)
+
+5. BUILD VERIFICATION
+Command: npx ng build
+Output:
+  Initial total: 394.43 kB
+  Lazy chunk files: enrollment-module (18.20 kB)
+  Application bundle generation complete. [3.459 seconds]
+  Result: 0 errors, build SUCCESSFUL.
+================================================================================
